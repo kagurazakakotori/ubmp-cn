@@ -29,7 +29,7 @@ unsigned long long (*LocateProtocol)(
 
 和`SystemTable`一样，这里我们使用一个全局变量`GOP`来存放`EFI_GRAPHICS_OUTPUT_PROTOCOL`，并且在`efi_init`函数中初始化这个全局变量。加入了GOP支持的`efi_init`函数如代码4.2所示。
 
-```
+```c
 void efi_init(struct EFI_SYSTEM_TABLE *SystemTable)
 {
     struct EFI_GUID gop_guid = {0x9042a9de, 0x23dc, 0x4a38, \

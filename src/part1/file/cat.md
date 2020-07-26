@@ -102,7 +102,7 @@ void shell(void)
 
 此外，我们可以使用`iconv`和`unix2dos`命令来文本文件转换为UEFI可识别的Unicode编码。[^1]
 
-```
+```shell
 $ unix2dos < input.txt | iconv -f UTF-8 -t UCS-2LE > output.txt
 ```
 

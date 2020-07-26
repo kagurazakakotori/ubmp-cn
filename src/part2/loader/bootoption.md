@@ -131,7 +131,7 @@ $ sudo apt install busybox-static
 
 安装完成后，我们可以在`/bin/busybox`找到安装的busybox。我们可以把这个文件像下面这样复制到根文件系统下。
 
-```
+```ignore
 /
 └── bin
     ├── busybox
