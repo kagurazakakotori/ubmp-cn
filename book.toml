@@ -1,0 +1,9 @@
+[book]
+authors = ["Ohgami Yuma" ,"Kagurazaka Kotori"]
+language = "zh-CN"
+multilingual = false
+src = "src"
+title = "从零开始的UEFI裸机编程"
+
+[output.html.search]
+enable = false
