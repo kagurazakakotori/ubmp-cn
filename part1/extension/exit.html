@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>实现退出功能 - 从零开始的UEFI裸机编程</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">从零开始的UEFI裸机编程</a></li><li class="chapter-item expanded affix "><a href="../../foreward.html">译者的话</a></li><li class="chapter-item expanded "><a href="../../part1/index.html"><strong aria-hidden="true">1.</strong> 第一部分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/intro.html"><strong aria-hidden="true">1.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../../part1/basics/index.html"><strong aria-hidden="true">1.2.</strong> Hello UEFI!</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/basics/program.html"><strong aria-hidden="true">1.2.1.</strong> 遵循UEFI标准编写程序</a></li><li class="chapter-item expanded "><a href="../../part1/basics/compile.html"><strong aria-hidden="true">1.2.2.</strong> 交叉编译为UEFI可执行格式</a></li><li class="chapter-item expanded "><a href="../../part1/basics/execute.html"><strong aria-hidden="true">1.2.3.</strong> 引导并运行UEFI应用程序</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/input/index.html"><strong aria-hidden="true">1.3.</strong> 获取按键输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/input/stip.html"><strong aria-hidden="true">1.3.1.</strong> 简单文本输入协议</a></li><li class="chapter-item expanded "><a href="../../part1/input/echo.html"><strong aria-hidden="true">1.3.2.</strong> 编写一个回显程序</a></li><li class="chapter-item expanded "><a href="../../part1/input/shell.html"><strong aria-hidden="true">1.3.3.</strong> 编写一个简单的Shell</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/graphic/index.html"><strong aria-hidden="true">1.4.</strong> 在屏幕上绘制图形</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/graphic/gop.html"><strong aria-hidden="true">1.4.1.</strong> 图形输出协议</a></li><li class="chapter-item expanded "><a href="../../part1/graphic/rectangle.html"><strong aria-hidden="true">1.4.2.</strong> 在屏幕上画一个矩形</a></li><li class="chapter-item expanded "><a href="../../part1/graphic/gui.html"><strong aria-hidden="true">1.4.3.</strong> 制作一个简单的GUI</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/mouse/index.html"><strong aria-hidden="true">1.5.</strong> 获取鼠标输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/mouse/spp.html"><strong aria-hidden="true">1.5.1.</strong> 简单指针协议</a></li><li class="chapter-item expanded "><a href="../../part1/mouse/pstat.html"><strong aria-hidden="true">1.5.2.</strong> 查看鼠标状态</a></li><li class="chapter-item expanded "><a href="../../part1/mouse/cursor.html"><strong aria-hidden="true">1.5.3.</strong> 实现鼠标指针</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/file/index.html"><strong aria-hidden="true">1.6.</strong> 文件读写</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/file/protocol.html"><strong aria-hidden="true">1.6.1.</strong> 文件相关的协议</a></li><li class="chapter-item expanded "><a href="../../part1/file/ls.html"><strong aria-hidden="true">1.6.2.</strong> 列出目录下文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guils.html"><strong aria-hidden="true">1.6.3.</strong> GUI下列出文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/cat.html"><strong aria-hidden="true">1.6.4.</strong> 读取文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guicat.html"><strong aria-hidden="true">1.6.5.</strong> GUI下浏览文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/edit.html"><strong aria-hidden="true">1.6.6.</strong> 编辑文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guiedit.html"><strong aria-hidden="true">1.6.7.</strong> GUI下编辑文本文件</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/extension/index.html"><strong aria-hidden="true">1.7.</strong> 扩展poiOS的功能</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/extension/image.html"><strong aria-hidden="true">1.7.1.</strong> 显示图片</a></li><li class="chapter-item expanded "><a href="../../part1/extension/exit.html" class="active"><strong aria-hidden="true">1.7.2.</strong> 实现退出功能</a></li><li class="chapter-item expanded "><a href="../../part1/extension/cursor.html"><strong aria-hidden="true">1.7.3.</strong> 更大的鼠标指针</a></li><li class="chapter-item expanded "><a href="../../part1/extension/screenshots.html"><strong aria-hidden="true">1.7.4.</strong> 功能展示</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/epilogue.html"><strong aria-hidden="true">1.8.</strong> 后记</a></li><li class="chapter-item expanded "><a href="../../part1/references.html"><strong aria-hidden="true">1.9.</strong> 参考资料</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/index.html"><strong aria-hidden="true">2.</strong> 第二部分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/intro.html"><strong aria-hidden="true">2.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../../part2/output/index.html"><strong aria-hidden="true">2.2.</strong> 控制台输出</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/output/setattribute.html"><strong aria-hidden="true">2.2.1.</strong> 设置文字颜色和背景色</a></li><li class="chapter-item expanded "><a href="../../part2/output/teststring.html"><strong aria-hidden="true">2.2.2.</strong> 检测字符串是否能被显示</a></li><li class="chapter-item expanded "><a href="../../part2/output/querymode.html"><strong aria-hidden="true">2.2.3.</strong> 获取支持的文本显示模式</a></li><li class="chapter-item expanded "><a href="../../part2/output/setmode.html"><strong aria-hidden="true">2.2.4.</strong> 设置文本显示模式</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/input/index.html"><strong aria-hidden="true">2.3.</strong> 键盘输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/input/registerkeynotify.html"><strong aria-hidden="true">2.3.1.</strong> 绑定按键事件</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/loader/index.html"><strong aria-hidden="true">2.4.</strong> 加载和执行UEFI应用程序</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/loader/filepath.html"><strong aria-hidden="true">2.4.1.</strong> 查看当前设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/createdevpath.html"><strong aria-hidden="true">2.4.2.</strong> 创建设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/loaddevpath.html"><strong aria-hidden="true">2.4.3.</strong> 从设备路径加载镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/devicehandle.html"><strong aria-hidden="true">2.4.4.</strong> 设备路径的“设备”</a></li><li class="chapter-item expanded "><a href="../../part2/loader/createfulldevpath.html"><strong aria-hidden="true">2.4.5.</strong> 创建完整的设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/loadfulldevpath.html"><strong aria-hidden="true">2.4.6.</strong> 从完整的设备路径加载镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/startimage.html"><strong aria-hidden="true">2.4.7.</strong> 运行加载的镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/bootkernel.html"><strong aria-hidden="true">2.4.8.</strong> 启动Linux: 编译并启动内核</a></li><li class="chapter-item expanded "><a href="../../part2/loader/bootoption.html"><strong aria-hidden="true">2.4.9.</strong> 启动Linux: 内核启动参数</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/timer/index.html"><strong aria-hidden="true">2.5.</strong> 计时器事件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/timer/wait.html"><strong aria-hidden="true">2.5.1.</strong> 暂停程序执行</a></li><li class="chapter-item expanded "><a href="../../part2/timer/async.html"><strong aria-hidden="true">2.5.2.</strong> 利用事件处理函数异步操作</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/other/index.html"><strong aria-hidden="true">2.6.</strong> 其他功能</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/other/allocator.html"><strong aria-hidden="true">2.6.1.</strong> 内存分配器</a></li><li class="chapter-item expanded "><a href="../../part2/other/shutdown.html"><strong aria-hidden="true">2.6.2.</strong> 软关机</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/epilogue.html"><strong aria-hidden="true">2.7.</strong> 后记</a></li><li class="chapter-item expanded "><a href="../../part2/references.html"><strong aria-hidden="true">2.8.</strong> 参考资料</a></li></ol></li><li class="chapter-item expanded "><a href="../../about.html">关于本书</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">从零开始的UEFI裸机编程</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#实现退出功能" id="实现退出功能">实现退出功能</a></h1>
+<h2><a class="header" href="#退出shell功能" id="退出shell功能">退出Shell功能</a></h2>
+<p>我们来加入一条<code>exit</code>命令用来退出Shell，这个功能实现起来非常容易，只需对<code>shell.c</code>中的<code>shell</code>函数稍作修改即可（代码7.4）。</p>
+<pre><code class="language-c">void shell(void)
+{
+    unsigned short com[MAX_COMMAND_LEN];
+    struct RECT r = {10, 10, 100, 200};
+    unsigned char is_exit = FALSE;  /* 新增 */
+
+    while (!is_exit) {  /* 更改 */
+        /* ...省略... */
+        } else if (!strcmp(L&quot;exit&quot;, com))  /* 新增 */
+            is_exit = TRUE;                /* 新增 */
+        else
+            puts(L&quot;Command not found.\r\n&quot;);
+    }
+}
+</code></pre>
+<p>代码7.4: 在<code>sample_poios/shell.c:shell</code>实现<code>exit</code>命令</p>
+<h2><a class="header" href="#退出gui功能" id="退出gui功能">退出GUI功能</a></h2>
+<p>接下来，我们在GUI的右上角放一个[X]按钮，并且实现点击这个按钮来退出GUI的功能。</p>
+<p>这里要修改的只有<code>gui.c</code>这个源文件。首先，我们创建两个函数，一个名为<code>put_exit_button</code>，用来在右上角绘制[X]按钮；另一个名为<code>update_exit_button</code>，用来更新按钮状态（是否高亮）和判定点击事件(代码7.5)。</p>
+<pre><code class="language-c">/* ...省略... */
+#define EXIT_BUTTON_WIDTH   20
+#define EXIT_BUTTON_HEIGHT  20
+/* ...省略... */
+struct FILE rect_exit_button;
+/* ...省略... */
+void put_exit_button(void)
+{
+    unsigned int hr = GOP-&gt;Mode-&gt;Info-&gt;HorizontalResolution;
+    unsigned int x;
+
+    rect_exit_button.rect.x = hr - EXIT_BUTTON_WIDTH;
+    rect_exit_button.rect.y = 0;
+    rect_exit_button.rect.w = EXIT_BUTTON_WIDTH;
+    rect_exit_button.rect.h = EXIT_BUTTON_HEIGHT;
+    rect_exit_button.is_highlight = FALSE;
+    draw_rect(rect_exit_button.rect, white);
+
+    /* 绘制按钮中的X图案 */
+    for (x = 3; x &lt; rect_exit_button.rect.w - 3; x++) {
+        draw_pixel(x + rect_exit_button.rect.x, x, white);
+        draw_pixel(x + rect_exit_button.rect.x,
+               rect_exit_button.rect.w - x, white);
+    }
+}
+
+unsigned char update_exit_button(int px, int py, unsigned char is_clicked)
+{
+    unsigned char is_exit = FALSE;
+
+    if (is_in_rect(px, py, rect_exit_button.rect)) {
+        if (!rect_exit_button.is_highlight) {
+            draw_rect(rect_exit_button.rect, yellow);
+            rect_exit_button.is_highlight = TRUE;
+        }
+        if (is_clicked)
+            is_exit = TRUE;
+    } else {
+        if (rect_exit_button.is_highlight) {
+            draw_rect(rect_exit_button.rect, white);
+            rect_exit_button.is_highlight = FALSE;
+        }
+    }
+
+    return is_exit;
+}
+</code></pre>
+<p>代码7.5: <code>sample_poios/gui.c:put_exit_button&amp;update_exit_button</code></p>
+<p>代码7.5中，<code>put_exit_button</code>函数在屏幕右上角绘制[X]按钮，并将这个按钮的坐标、大小和高亮状态放置在全局变量<code>struct FILE rect_exit_button</code>中。而<code>update_exit_button</code>则根据当前的鼠标状态（指针位置、点击状态）来更新[X]按钮的的高亮状态，并返回[X]按钮是否被按下。</p>
+<p>接着，我们在<code>gui</code>函数中调用上面两个函数来实现退出GUI的功能（代码7.6）。</p>
+<pre><code class="language-c">void gui(void)
+{
+    /* ...省略... */
+    unsigned char is_exit = FALSE;  /* 新增 */
+
+    SPP-&gt;Reset(SPP, FALSE);
+    file_num = ls_gui();
+    put_exit_button();  /* 新增 */
+
+    while (!is_exit) {  /* 更改 */
+        ST-&gt;BootServices-&gt;WaitForEvent(1, &amp;(SPP-&gt;WaitForInput), &amp;waitidx);
+        status = SPP-&gt;GetState(SPP, &amp;s);
+        if (!status) {
+            /* ...省略... */
+
+            /* 处理文件图标 */
+            for (idx = 0; idx &lt; file_num; idx++) {
+                if (is_in_rect(px, py, file_list[idx].rect)) {
+                    /* ...省略... */
+                    if (prev_lb &amp;&amp; !s.LeftButton) {
+                        /* ...省略... */
+                        file_num = ls_gui();
+                        put_exit_button();  /* 追加 */
+                    }
+                    if (prev_rb &amp;&amp; !s.RightButton) {
+                        edit(file_list[idx].name);
+                        file_num = ls_gui();
+                        put_exit_button();  /* 追加 */
+                        executed_rb = TRUE;
+                    }
+                } else {
+                    /* ...省略... */
+                }
+            }
+
+            /* 新建文件 */
+            if ((prev_rb &amp;&amp; !s.RightButton) &amp;&amp; !executed_rb) {
+                /* 处理文件图标外的右键单击事件 */
+                dialogue_get_filename(file_num);
+                edit(file_list[file_num].name);
+                ST-&gt;ConOut-&gt;ClearScreen(ST-&gt;ConOut);
+                file_num = ls_gui();
+                put_exit_button();  /* 新增 */
+            }
+
+            /* 新增(此处开始) */
+            /* 更新退出按钮状态 */
+            is_exit = update_exit_button(px, py, prev_lb &amp;&amp; !s.LeftButton);
+            /* 新增(此处结束) */
+
+            /* ...省略... */
+        }
+    }
+}
+</code></pre>
+<p>代码7.6: <code>sample_poios/gui.c:gui</code></p>
+<p>上面这段代码中，在第一次进入至GUI或是从其它界面回到GUI时（例如从<code>cat</code>命令返回），我们调用<code>put_exit_button</code>函数来绘制[X]按钮。并且在主循环的最后调用<code>update_exit_button</code>函数来更新[X]按钮的状态，并通过这个函数的返回值来决定是否要跳出主循环。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../part1/extension/image.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../part1/extension/cursor.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../part1/extension/image.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../part1/extension/cursor.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

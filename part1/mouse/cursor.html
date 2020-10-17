@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>实现鼠标指针 - 从零开始的UEFI裸机编程</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">从零开始的UEFI裸机编程</a></li><li class="chapter-item expanded affix "><a href="../../foreward.html">译者的话</a></li><li class="chapter-item expanded "><a href="../../part1/index.html"><strong aria-hidden="true">1.</strong> 第一部分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/intro.html"><strong aria-hidden="true">1.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../../part1/basics/index.html"><strong aria-hidden="true">1.2.</strong> Hello UEFI!</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/basics/program.html"><strong aria-hidden="true">1.2.1.</strong> 遵循UEFI标准编写程序</a></li><li class="chapter-item expanded "><a href="../../part1/basics/compile.html"><strong aria-hidden="true">1.2.2.</strong> 交叉编译为UEFI可执行格式</a></li><li class="chapter-item expanded "><a href="../../part1/basics/execute.html"><strong aria-hidden="true">1.2.3.</strong> 引导并运行UEFI应用程序</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/input/index.html"><strong aria-hidden="true">1.3.</strong> 获取按键输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/input/stip.html"><strong aria-hidden="true">1.3.1.</strong> 简单文本输入协议</a></li><li class="chapter-item expanded "><a href="../../part1/input/echo.html"><strong aria-hidden="true">1.3.2.</strong> 编写一个回显程序</a></li><li class="chapter-item expanded "><a href="../../part1/input/shell.html"><strong aria-hidden="true">1.3.3.</strong> 编写一个简单的Shell</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/graphic/index.html"><strong aria-hidden="true">1.4.</strong> 在屏幕上绘制图形</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/graphic/gop.html"><strong aria-hidden="true">1.4.1.</strong> 图形输出协议</a></li><li class="chapter-item expanded "><a href="../../part1/graphic/rectangle.html"><strong aria-hidden="true">1.4.2.</strong> 在屏幕上画一个矩形</a></li><li class="chapter-item expanded "><a href="../../part1/graphic/gui.html"><strong aria-hidden="true">1.4.3.</strong> 制作一个简单的GUI</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/mouse/index.html"><strong aria-hidden="true">1.5.</strong> 获取鼠标输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/mouse/spp.html"><strong aria-hidden="true">1.5.1.</strong> 简单指针协议</a></li><li class="chapter-item expanded "><a href="../../part1/mouse/pstat.html"><strong aria-hidden="true">1.5.2.</strong> 查看鼠标状态</a></li><li class="chapter-item expanded "><a href="../../part1/mouse/cursor.html" class="active"><strong aria-hidden="true">1.5.3.</strong> 实现鼠标指针</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/file/index.html"><strong aria-hidden="true">1.6.</strong> 文件读写</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/file/protocol.html"><strong aria-hidden="true">1.6.1.</strong> 文件相关的协议</a></li><li class="chapter-item expanded "><a href="../../part1/file/ls.html"><strong aria-hidden="true">1.6.2.</strong> 列出目录下文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guils.html"><strong aria-hidden="true">1.6.3.</strong> GUI下列出文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/cat.html"><strong aria-hidden="true">1.6.4.</strong> 读取文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guicat.html"><strong aria-hidden="true">1.6.5.</strong> GUI下浏览文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/edit.html"><strong aria-hidden="true">1.6.6.</strong> 编辑文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guiedit.html"><strong aria-hidden="true">1.6.7.</strong> GUI下编辑文本文件</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/extension/index.html"><strong aria-hidden="true">1.7.</strong> 扩展poiOS的功能</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/extension/image.html"><strong aria-hidden="true">1.7.1.</strong> 显示图片</a></li><li class="chapter-item expanded "><a href="../../part1/extension/exit.html"><strong aria-hidden="true">1.7.2.</strong> 实现退出功能</a></li><li class="chapter-item expanded "><a href="../../part1/extension/cursor.html"><strong aria-hidden="true">1.7.3.</strong> 更大的鼠标指针</a></li><li class="chapter-item expanded "><a href="../../part1/extension/screenshots.html"><strong aria-hidden="true">1.7.4.</strong> 功能展示</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/epilogue.html"><strong aria-hidden="true">1.8.</strong> 后记</a></li><li class="chapter-item expanded "><a href="../../part1/references.html"><strong aria-hidden="true">1.9.</strong> 参考资料</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/index.html"><strong aria-hidden="true">2.</strong> 第二部分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/intro.html"><strong aria-hidden="true">2.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../../part2/output/index.html"><strong aria-hidden="true">2.2.</strong> 控制台输出</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/output/setattribute.html"><strong aria-hidden="true">2.2.1.</strong> 设置文字颜色和背景色</a></li><li class="chapter-item expanded "><a href="../../part2/output/teststring.html"><strong aria-hidden="true">2.2.2.</strong> 检测字符串是否能被显示</a></li><li class="chapter-item expanded "><a href="../../part2/output/querymode.html"><strong aria-hidden="true">2.2.3.</strong> 获取支持的文本显示模式</a></li><li class="chapter-item expanded "><a href="../../part2/output/setmode.html"><strong aria-hidden="true">2.2.4.</strong> 设置文本显示模式</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/input/index.html"><strong aria-hidden="true">2.3.</strong> 键盘输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/input/registerkeynotify.html"><strong aria-hidden="true">2.3.1.</strong> 绑定按键事件</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/loader/index.html"><strong aria-hidden="true">2.4.</strong> 加载和执行UEFI应用程序</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/loader/filepath.html"><strong aria-hidden="true">2.4.1.</strong> 查看当前设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/createdevpath.html"><strong aria-hidden="true">2.4.2.</strong> 创建设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/loaddevpath.html"><strong aria-hidden="true">2.4.3.</strong> 从设备路径加载镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/devicehandle.html"><strong aria-hidden="true">2.4.4.</strong> 设备路径的“设备”</a></li><li class="chapter-item expanded "><a href="../../part2/loader/createfulldevpath.html"><strong aria-hidden="true">2.4.5.</strong> 创建完整的设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/loadfulldevpath.html"><strong aria-hidden="true">2.4.6.</strong> 从完整的设备路径加载镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/startimage.html"><strong aria-hidden="true">2.4.7.</strong> 运行加载的镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/bootkernel.html"><strong aria-hidden="true">2.4.8.</strong> 启动Linux: 编译并启动内核</a></li><li class="chapter-item expanded "><a href="../../part2/loader/bootoption.html"><strong aria-hidden="true">2.4.9.</strong> 启动Linux: 内核启动参数</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/timer/index.html"><strong aria-hidden="true">2.5.</strong> 计时器事件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/timer/wait.html"><strong aria-hidden="true">2.5.1.</strong> 暂停程序执行</a></li><li class="chapter-item expanded "><a href="../../part2/timer/async.html"><strong aria-hidden="true">2.5.2.</strong> 利用事件处理函数异步操作</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/other/index.html"><strong aria-hidden="true">2.6.</strong> 其他功能</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/other/allocator.html"><strong aria-hidden="true">2.6.1.</strong> 内存分配器</a></li><li class="chapter-item expanded "><a href="../../part2/other/shutdown.html"><strong aria-hidden="true">2.6.2.</strong> 软关机</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/epilogue.html"><strong aria-hidden="true">2.7.</strong> 后记</a></li><li class="chapter-item expanded "><a href="../../part2/references.html"><strong aria-hidden="true">2.8.</strong> 参考资料</a></li></ol></li><li class="chapter-item expanded "><a href="../../about.html">关于本书</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">从零开始的UEFI裸机编程</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#实现鼠标指针" id="实现鼠标指针">实现鼠标指针</a></h1>
+<p>现在，我们已经知道了如何在屏幕上绘制图形和如何获取鼠标的输入值，接下来我们将向那个只有一个矩形图标的&quot;GUI&quot;加入一个鼠标指针。本节示例代码的目录为<code>cursor</code> (日文版为<code>sample4_2_add_cursor</code>)。</p>
+<p>为了简化实现，这里我们的鼠标指针只有1像素。加入了鼠标指针的<code>gui.c</code>如代码5.5所示。</p>
+<pre><code class="language-c">#include &quot;efi.h&quot;
+#include &quot;common.h&quot;
+#include &quot;graphics.h&quot;
+#include &quot;shell.h&quot;
+#include &quot;gui.h&quot;
+
+/* 新增(此处开始) */
+struct EFI_GRAPHICS_OUTPUT_BLT_PIXEL cursor_tmp = {0, 0, 0, 0};
+int cursor_old_x;
+int cursor_old_y;
+
+void draw_cursor(int x, int y)
+{
+    draw_pixel(x, y, white);
+}
+
+void save_cursor_area(int x, int y)
+{
+    cursor_tmp = get_pixel(x, y);
+    cursor_tmp.Reserved = 0xff;
+}
+
+void load_cursor_area(int x, int y)
+{
+    draw_pixel(x, y, cursor_tmp);
+}
+
+void put_cursor(int x, int y)
+{
+    if (cursor_tmp.Reserved)
+        load_cursor_area(cursor_old_x, cursor_old_y);
+
+    save_cursor_area(x, y);
+
+    draw_cursor(x, y);
+
+    cursor_old_x = x;
+    cursor_old_y = y;
+}
+/* 新增(此处结束) */
+
+void gui(void)
+{
+    struct RECT r = {10, 10, 20, 20};
+    /* 新增/修改(此处开始) */
+    unsigned long long status;
+    struct EFI_SIMPLE_POINTER_STATE s;
+    int px = 0, py = 0;
+    unsigned long long waitidx;
+    unsigned char is_highlight = FALSE;
+
+    ST-&gt;ConOut-&gt;ClearScreen(ST-&gt;ConOut);
+    SPP-&gt;Reset(SPP, FALSE);
+
+    /* 绘制一个矩形图标 */
+    draw_rect(r, white);
+
+    while (TRUE) {
+        ST-&gt;BootServices-&gt;WaitForEvent(1, &amp;(SPP-&gt;WaitForInput), &amp;waitidx);
+        status = SPP-&gt;GetState(SPP, &amp;s);
+        if (!status) {
+            /* 更新鼠标指针位置 */
+            px += s.RelativeMovementX &gt;&gt; 13;
+            if (px &lt; 0)
+                px = 0;
+            else if (GOP-&gt;Mode-&gt;Info-&gt;HorizontalResolution &lt;=
+                 (unsigned int)px)
+                px = GOP-&gt;Mode-&gt;Info-&gt;HorizontalResolution - 1;
+            py += s.RelativeMovementY &gt;&gt; 13;
+            if (py &lt; 0)
+                py = 0;
+            else if (GOP-&gt;Mode-&gt;Info-&gt;VerticalResolution &lt;=
+                 (unsigned int)py)
+                py = GOP-&gt;Mode-&gt;Info-&gt;VerticalResolution - 1;
+
+            /* 绘制鼠标指针 */
+            put_cursor(px, py);
+
+            /* 鼠标悬浮于矩形图标上时，高亮矩形图标 */
+            if (is_in_rect(px, py, r)) {
+                if (!is_highlight) {
+                    draw_rect(r, yellow);
+                    is_highlight = TRUE;
+                }
+            } else {
+                if (is_highlight) {
+                    draw_rect(r, white);
+                    is_highlight = FALSE;
+                }
+            }
+        }
+    }
+    /* 新增/修改(此处结束) */
+}
+</code></pre>
+<p>代码5.5: <code>cursor/gui.c</code></p>
+<p>修改后的<code>gui</code>函数在先前的清屏和绘制矩形之后，进入一个循环，并在循环中执行下面的操作：</p>
+<ol>
+<li>调用<code>WaitForEvent</code>函数等待鼠标输入，并用<code>GetState</code>函数获取鼠标的输入值</li>
+<li>更新屏幕上光标的位置</li>
+<li>绘制光标（<code>put_cursor</code>函数）</li>
+<li>更新矩形图标（悬浮于其上时高亮）</li>
+</ol>
+<p><code>put_cursor</code>函数是一个将鼠标指针移动至指定位置的函数，它执行的操作如下：</p>
+<ol>
+<li>恢复之前保存的旧的光标位置的像素数据（<code>load_cursor_area</code>）</li>
+<li>保存新的光标位置的像素数据（<code>save_cursor_area</code>）</li>
+<li>在新的光标位置绘制像素（<code>draw_cursor</code>）</li>
+<li>保存当前光标位置（<code>cursor_old_x</code>和<code>cursor_old_y</code>)</li>
+</ol>
+<p><code>save_cursor_data</code>函数中使用了我们在<code>graphics.c</code>中新增加的<code>get_pixel</code>函数来从帧缓冲区中读取像素数据，得到的是一个<code>EFI_GRAPHICS_OUTPUT_BLT_PIXEL</code>类型的结构体。对于其中的成员<code>Reserved</code>，所得到的值是0，但是当写入时，<code>Reserved</code>值为0会导致没有任何内容被显示，因此我们在<code>save_cursor_data</code>中需要把保存的像素的<code>Reserved</code>值设为<code>0xff</code>。在<code>put_cursor</code>函数中，我们藉由这点来判定是否存在保存的像素。</p>
+<p>回到<code>gui</code>函数的那个循环，对于第2步更新屏幕上光标的位置，是以上一节<code>pstat</code>所得到的数据为依据粗略计算得到的。由于所得到的移动量低12位均为0，而右移12位时的移动量太大了，因此这里我们右移13位。如果你的鼠标移动量过大或过小，请通过<code>pstat</code>得到的数据进行相应的调节。<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>在第4步更新矩形图标时，如果当前光标位于矩形图标范围内，则将矩形图标的颜色设置为高亮色（此处为黄色），否则，矩形将被设为初始颜色，这一设置过程通过简单的覆盖来实现。</p>
+<p>在Shell中通过<code>gui</code>命令来进入修改后的GUI模式，将显示图5.2这样的画面。图片中矩形右侧的点为光标。当鼠标悬浮于矩形之上时，矩形将会变为黄色（图5.3）。<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+<p><img src="../../images/part1/cursor.png" alt="带光标的GUI" /></p>
+<p>图5.2: 带光标的GUI (矩形图标右侧1像素的小白点为光标)</p>
+<p><img src="../../images/part1/cursor-highlight.png" alt="光标悬浮于矩形图标上时的高亮显示" /></p>
+<p>图5.3: 光标悬浮于矩形图标上时的高亮显示</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>译者注：根据标准文档&quot;11.5 Simple Pointer Protocol(P.439)&quot;所述，鼠标移动的实际距离是通过<code>RelativeMovementX / ResolutionX</code>计算出的，单位为毫米，而<code>ResolutionX</code>是<code>SPP-&gt;Mode</code>（书中定义忽略）的成员。关于这方面更详细的内容，请阅读标准文档。</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>译者注：这里由于译者更新了图片，删去了原作者的两条关于图片的注释</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../part1/mouse/pstat.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../part1/file/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../part1/mouse/pstat.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../part1/file/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>启动Linux: 内核启动参数 - 从零开始的UEFI裸机编程</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">从零开始的UEFI裸机编程</a></li><li class="chapter-item expanded affix "><a href="../../foreward.html">译者的话</a></li><li class="chapter-item expanded "><a href="../../part1/index.html"><strong aria-hidden="true">1.</strong> 第一部分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/intro.html"><strong aria-hidden="true">1.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../../part1/basics/index.html"><strong aria-hidden="true">1.2.</strong> Hello UEFI!</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/basics/program.html"><strong aria-hidden="true">1.2.1.</strong> 遵循UEFI标准编写程序</a></li><li class="chapter-item expanded "><a href="../../part1/basics/compile.html"><strong aria-hidden="true">1.2.2.</strong> 交叉编译为UEFI可执行格式</a></li><li class="chapter-item expanded "><a href="../../part1/basics/execute.html"><strong aria-hidden="true">1.2.3.</strong> 引导并运行UEFI应用程序</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/input/index.html"><strong aria-hidden="true">1.3.</strong> 获取按键输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/input/stip.html"><strong aria-hidden="true">1.3.1.</strong> 简单文本输入协议</a></li><li class="chapter-item expanded "><a href="../../part1/input/echo.html"><strong aria-hidden="true">1.3.2.</strong> 编写一个回显程序</a></li><li class="chapter-item expanded "><a href="../../part1/input/shell.html"><strong aria-hidden="true">1.3.3.</strong> 编写一个简单的Shell</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/graphic/index.html"><strong aria-hidden="true">1.4.</strong> 在屏幕上绘制图形</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/graphic/gop.html"><strong aria-hidden="true">1.4.1.</strong> 图形输出协议</a></li><li class="chapter-item expanded "><a href="../../part1/graphic/rectangle.html"><strong aria-hidden="true">1.4.2.</strong> 在屏幕上画一个矩形</a></li><li class="chapter-item expanded "><a href="../../part1/graphic/gui.html"><strong aria-hidden="true">1.4.3.</strong> 制作一个简单的GUI</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/mouse/index.html"><strong aria-hidden="true">1.5.</strong> 获取鼠标输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/mouse/spp.html"><strong aria-hidden="true">1.5.1.</strong> 简单指针协议</a></li><li class="chapter-item expanded "><a href="../../part1/mouse/pstat.html"><strong aria-hidden="true">1.5.2.</strong> 查看鼠标状态</a></li><li class="chapter-item expanded "><a href="../../part1/mouse/cursor.html"><strong aria-hidden="true">1.5.3.</strong> 实现鼠标指针</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/file/index.html"><strong aria-hidden="true">1.6.</strong> 文件读写</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/file/protocol.html"><strong aria-hidden="true">1.6.1.</strong> 文件相关的协议</a></li><li class="chapter-item expanded "><a href="../../part1/file/ls.html"><strong aria-hidden="true">1.6.2.</strong> 列出目录下文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guils.html"><strong aria-hidden="true">1.6.3.</strong> GUI下列出文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/cat.html"><strong aria-hidden="true">1.6.4.</strong> 读取文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guicat.html"><strong aria-hidden="true">1.6.5.</strong> GUI下浏览文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/edit.html"><strong aria-hidden="true">1.6.6.</strong> 编辑文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guiedit.html"><strong aria-hidden="true">1.6.7.</strong> GUI下编辑文本文件</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/extension/index.html"><strong aria-hidden="true">1.7.</strong> 扩展poiOS的功能</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/extension/image.html"><strong aria-hidden="true">1.7.1.</strong> 显示图片</a></li><li class="chapter-item expanded "><a href="../../part1/extension/exit.html"><strong aria-hidden="true">1.7.2.</strong> 实现退出功能</a></li><li class="chapter-item expanded "><a href="../../part1/extension/cursor.html"><strong aria-hidden="true">1.7.3.</strong> 更大的鼠标指针</a></li><li class="chapter-item expanded "><a href="../../part1/extension/screenshots.html"><strong aria-hidden="true">1.7.4.</strong> 功能展示</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/epilogue.html"><strong aria-hidden="true">1.8.</strong> 后记</a></li><li class="chapter-item expanded "><a href="../../part1/references.html"><strong aria-hidden="true">1.9.</strong> 参考资料</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/index.html"><strong aria-hidden="true">2.</strong> 第二部分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/intro.html"><strong aria-hidden="true">2.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../../part2/output/index.html"><strong aria-hidden="true">2.2.</strong> 控制台输出</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/output/setattribute.html"><strong aria-hidden="true">2.2.1.</strong> 设置文字颜色和背景色</a></li><li class="chapter-item expanded "><a href="../../part2/output/teststring.html"><strong aria-hidden="true">2.2.2.</strong> 检测字符串是否能被显示</a></li><li class="chapter-item expanded "><a href="../../part2/output/querymode.html"><strong aria-hidden="true">2.2.3.</strong> 获取支持的文本显示模式</a></li><li class="chapter-item expanded "><a href="../../part2/output/setmode.html"><strong aria-hidden="true">2.2.4.</strong> 设置文本显示模式</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/input/index.html"><strong aria-hidden="true">2.3.</strong> 键盘输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/input/registerkeynotify.html"><strong aria-hidden="true">2.3.1.</strong> 绑定按键事件</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/loader/index.html"><strong aria-hidden="true">2.4.</strong> 加载和执行UEFI应用程序</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/loader/filepath.html"><strong aria-hidden="true">2.4.1.</strong> 查看当前设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/createdevpath.html"><strong aria-hidden="true">2.4.2.</strong> 创建设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/loaddevpath.html"><strong aria-hidden="true">2.4.3.</strong> 从设备路径加载镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/devicehandle.html"><strong aria-hidden="true">2.4.4.</strong> 设备路径的“设备”</a></li><li class="chapter-item expanded "><a href="../../part2/loader/createfulldevpath.html"><strong aria-hidden="true">2.4.5.</strong> 创建完整的设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/loadfulldevpath.html"><strong aria-hidden="true">2.4.6.</strong> 从完整的设备路径加载镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/startimage.html"><strong aria-hidden="true">2.4.7.</strong> 运行加载的镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/bootkernel.html"><strong aria-hidden="true">2.4.8.</strong> 启动Linux: 编译并启动内核</a></li><li class="chapter-item expanded "><a href="../../part2/loader/bootoption.html" class="active"><strong aria-hidden="true">2.4.9.</strong> 启动Linux: 内核启动参数</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/timer/index.html"><strong aria-hidden="true">2.5.</strong> 计时器事件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/timer/wait.html"><strong aria-hidden="true">2.5.1.</strong> 暂停程序执行</a></li><li class="chapter-item expanded "><a href="../../part2/timer/async.html"><strong aria-hidden="true">2.5.2.</strong> 利用事件处理函数异步操作</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/other/index.html"><strong aria-hidden="true">2.6.</strong> 其他功能</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/other/allocator.html"><strong aria-hidden="true">2.6.1.</strong> 内存分配器</a></li><li class="chapter-item expanded "><a href="../../part2/other/shutdown.html"><strong aria-hidden="true">2.6.2.</strong> 软关机</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/epilogue.html"><strong aria-hidden="true">2.7.</strong> 后记</a></li><li class="chapter-item expanded "><a href="../../part2/references.html"><strong aria-hidden="true">2.8.</strong> 参考资料</a></li></ol></li><li class="chapter-item expanded "><a href="../../about.html">关于本书</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">从零开始的UEFI裸机编程</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#启动linux-内核启动参数" id="启动linux-内核启动参数">启动Linux: 内核启动参数</a></h1>
+<p>上一节中，我们启动内核发生了错误，这是由于我们没有指定一些必要的启动参数，例如错误消息中的根文件系统(rootfs)。接下来，我们就来设置这些启动参数。</p>
+<p>本节示例代码的目录为<code>boot-kernel-rootfs</code> (日文版为<code>038_start_bzImage_options</code>)。</p>
+<p>UEFI应用程序的参数由<code>EFI_LOADED_IMAGE_PROTOCOL</code>中的<code>LoadOptionsSize</code>和<code>LoadOptions</code>表示，图4.38展示了它们的定义。</p>
+<pre><code class="language-c">struct EFI_LOADED_IMAGE_PROTOCOL {
+        unsigned int Revision;
+        void *ParentHandle;
+        struct EFI_SYSTEM_TABLE *SystemTable;
+
+        /* 镜像源文件的位置 */
+        void *DeviceHandle;
+        struct EFI_DEVICE_PATH_PROTOCOL *FilePath;
+        void *Reserved;
+
+        /* 加载镜像时的选项 */
+        unsigned int LoadOptionsSize;  /* 参数字符串的大小 */
+        void *LoadOptions;             /* 指向参数字符串的指针 */
+
+        /* 镜像被加载到的位置 */
+        void *ImageBase;
+        unsigned long long ImageSize;
+        enum EFI_MEMORY_TYPE ImageCodeType;
+        enum EFI_MEMORY_TYPE ImageDataType;
+        unsigned long long (*Unload)(void *ImageHandle);
+};
+</code></pre>
+<p>图4.38: <code>EFI_LOADED_IMAGE_PROTOCOL</code>的定义（位于<code>efi.h</code>中，与图4.1相同）</p>
+<p>向Linux内核传递启动参数的代码如图4.39所示。</p>
+<pre><code class="language-c">#include &quot;efi.h&quot;
+#include &quot;common.h&quot;
+
+void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
+{
+    struct EFI_LOADED_IMAGE_PROTOCOL *lip;
+    struct EFI_LOADED_IMAGE_PROTOCOL *lip_bzimage;  /* 新增 */
+    struct EFI_DEVICE_PATH_PROTOCOL *dev_path;
+    struct EFI_DEVICE_PATH_PROTOCOL *dev_node;
+    struct EFI_DEVICE_PATH_PROTOCOL *dev_path_merged;
+    unsigned long long status;
+    void *image;
+    unsigned short options[] = L&quot;root=/dev/sdb init=/bin/sh rootwait&quot;;  /* 新增 */
+
+    efi_init(SystemTable);
+    ST-&gt;ConOut-&gt;ClearScreen(ST-&gt;ConOut);
+
+    /* 获取ImageHandle的EFI_LOADED_IMAGE_PROTOCOL(lip) */
+    status = ST-&gt;BootServices-&gt;OpenProtocol(
+        ImageHandle, &amp;lip_guid, (void **)&amp;lip, ImageHandle, NULL,
+        EFI_OPEN_PROTOCOL_GET_PROTOCOL);
+    assert(status, L&quot;OpenProtocol(lip)&quot;);
+
+    /* 获取lip-&gt;DeviceHandle的EFI_DEVICE_PATH_PROTOCOL(dev_path) */
+    status = ST-&gt;BootServices-&gt;OpenProtocol(
+        lip-&gt;DeviceHandle, &amp;dpp_guid, (void **)&amp;dev_path, ImageHandle,
+        NULL, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
+    assert(status, L&quot;OpenProtocol(dpp)&quot;);
+
+    /* 创建bzImage.efi的设备节点 */
+    dev_node = DPFTP-&gt;ConvertTextToDeviceNode(L&quot;bzImage.efi&quot;);
+
+    /* 把dev_node附加到dev_path后 */
+    dev_path_merged = DPUP-&gt;AppendDeviceNode(dev_path, dev_node);
+
+    /* 把dev_path_merged转换成字符串并显示 */
+    puts(L&quot;dev_path_merged: &quot;);
+    puts(DPTTP-&gt;ConvertDevicePathToText(dev_path_merged, FALSE, FALSE));
+    puts(L&quot;\r\n&quot;);
+
+    /* 从dev_path_merged加载镜像 */
+    status = ST-&gt;BootServices-&gt;LoadImage(FALSE, ImageHandle,
+                         dev_path_merged, NULL, 0, &amp;image);
+    assert(status, L&quot;LoadImage&quot;);
+    puts(L&quot;LoadImage: Success!\r\n&quot;);
+
+    /* 新增(此处开始) */
+    /* 设置内核启动选项 */
+    status = ST-&gt;BootServices-&gt;OpenProtocol(
+        image, &amp;lip_guid, (void **)&amp;lip_bzimage, ImageHandle, NULL,
+        EFI_OPEN_PROTOCOL_GET_PROTOCOL);
+    assert(status, L&quot;OpenProtocol(lip_bzimage)&quot;);
+    lip_bzimage-&gt;LoadOptions = options;
+    lip_bzimage-&gt;LoadOptionsSize = (strlen(options) + 1) * sizeof(unsigned short);
+    /* 新增(此处结束) */
+
+    /* 启动Linux内核 */
+    status = ST-&gt;BootServices-&gt;StartImage(image, NULL, NULL);
+    assert(status, L&quot;StartImage&quot;);
+    puts(L&quot;StartImage: Success!\r\n&quot;);
+
+    while (TRUE);
+}
+</code></pre>
+<p>图4.39: 向Linux内核传递启动参数</p>
+<p>这里，我们的启动参数是<code>root=/dev/sdb init=/bin/sh rootwait</code>。<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p><code>root=...</code>告诉内核使用哪个设备作为根文件系统。这里我们使用<code>/dev/sdb</code>，它表示第二个磁盘，并且这个磁盘上没有分区。这里也可以使用<code>PARTUUID=&lt;分区的UUID&gt;</code>来指定，这是一种更准确且与设备无关的方式。<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+<p><code>init=...</code>告诉内核在启动后执行哪个程序。如果该选项未被设置，将会启动<code>/sbin/init</code>。这里我们设置为<code>/bin/sh</code>来在启动后直接运行Shell。因此，我们需要把Shell放入根文件系统，具体的将在后面讲述。</p>
+<p><code>rootwait</code>告诉内核无限期等待，直到根文件系统出现。对于U盘等设备，设备的发现是异步的，如果在发现USB设备之前挂载根文件系统，则内核会找不到根文件系统，造成启动失败。</p>
+<p>关于更多的内核启动参数，请参阅<a href="http://man7.org/linux/man-pages/man7/bootparam.7.html">man 7 bootparam</a>和<a href="https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html">The kernel’s command-line parameters</a>。</p>
+<p>使用这些启动参数，就可以成功启动到Shell了。</p>
+<p><img src="../../images/part2/boot-kernel-busybox.png" alt="成功启动内核并进入Shell" /></p>
+<p>图4.40: 成功启动内核并进入Shell</p>
+<h2><a class="header" href="#补充-构建最小根文件系统" id="补充-构建最小根文件系统">补充: 构建最小根文件系统</a></h2>
+<p>对于我们这里只需要运行一个Shell的需求，我们可以使用Busybox来构建一个最小根文件系统。Busybox被誉为“嵌入式Linux系统的瑞士军刀”，它集成了一系列的常用命令，并且通过建立以命令来命名的指向busybox的链接，比如<code>/bin/ls -&gt; /bin/busybox</code>，可以运行对应的命令。</p>
+<p>在使用apt包管理器的发行版(Debian、Ubuntu等)，我们可以通过安装<code>busybox-static</code>包来得到静态链接的busybox。</p>
+<pre><code class="language-shell">$ sudo apt install busybox-static
+</code></pre>
+<p>安装完成后，我们可以在<code>/bin/busybox</code>找到安装的busybox。我们可以把这个文件像下面这样复制到根文件系统下。</p>
+<pre><code class="language-ignore">/
+└── bin
+    ├── busybox
+    └── sh -&gt; busybox
+</code></pre>
+<p>尽管Busybox提供了基本的命令，但如果需要使用<code>apt</code>这样的命令，构建根文件系统就变得困难起来了。幸好，Debian系操作系统提供了构建最小Debian根文件系统的命令<code>debootstrap</code>。更棒的是，这个命令在Ubuntu或是Linux Mint这些Debian派生的发行版上也可以使用。</p>
+<pre><code class="language-shell">$ sudo debootstrap &lt;发行版&gt; &lt;目标目录&gt;
+</code></pre>
+<p>如果要在<code>/mnt/storage</code>上构建Debian 10 &quot;buster&quot;的最小根文件系统，只需要运行下面这条命令：</p>
+<pre><code class="language-shell">$ sudo debootstrap buster /mnt/storage
+</code></pre>
+<p>更多用法请参照<code>man debootstrap</code>。</p>
+<blockquote>
+<p><strong>构建更完整的Busybox根文件系统</strong></p>
+<p><em>本段为译者补充</em></p>
+<p>上面所介绍的最小根文件系统存在不少缺陷，例如当执行某些<code>busybox</code>中存在的命令时，会提示<code>applet not found</code>，并且<code>proc</code>文件系统也没有被挂载。在中文版的示例代码中，<code>mkrootfs.sh</code>构建了一套更为完整的基于Busybox的根文件系统，解决了这些问题。</p>
+<p>Busybox提供了<code>--list-full</code>这一选项来列出命令的完整路径，通过这一功能可以方便地创建各个命令指向它的链接。由于Busybox自带一个<code>/sbin/init</code>程序，在创建完它的链接之后，内核启动参数中的<code>init=/bin/sh</code>这项就没有必要了，这就是为什么示例代码中的内核启动参数是<code>root=/dev/sdb rootwait</code>的原因。</p>
+<p>Busybox的<code>/sbin/init</code>在启动Shell之前会尝试执行位于<code>/etc/init.d/rcS</code>的脚本。图4.41展示了使用这一脚本挂载<code>/proc</code>和<code>/sys</code>的方式。注意，这一脚本需要执行权限才能被init运行。</p>
+<pre><code class="language-sh">#!/bin/sh
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+</code></pre>
+<p>图4.41: 用于挂载<code>/proc</code>和<code>/sys</code>的<code>rcS</code>脚本</p>
+<p>关于构建这一文件系统的更多细节，请阅读示例代码中的<code>linux/rootfs-busybox/mkrootfs.sh</code>。</p>
+</blockquote>
+<blockquote>
+<p><strong>使用initramfs</strong></p>
+<p><em>本段为译者补充</em></p>
+<p>如果你觉得上面构建根文件系统过于复杂，你也可以使用initramfs。使用这一方式的示例代码的目录为<code>boot-kernel-initramfs</code>。</p>
+<p>initramfs是一个启动时用到的文件系统，内核启动时它会被加载到内存中，内核启动完成后会将控制权交给其中的init。init将会执行其他的用户态程序来进行后续的启动操作，例如加载额外的内核模块（设备驱动等），挂载根文件系统，运行根文件系统的init。许多initramfs的实现都带有一个Shell，用于运行启动脚本和系统无法启动时的救援操作。</p>
+<p>构建initramfs的方式非常简单，只需要运行下面这条命令即可：</p>
+<pre><code class="language-shell">$ mkinitramfs -o initramfs.img
+</code></pre>
+<p>这里，我们将<code>initramfs.img</code>放在EFI分区的根目录中，使用的启动参数是<code>root=/dev/sda1 initrd=initramfs.img</code>。显然，<code>initrd=...</code>告诉内核initramfs的位置。另外，由于内核并不支持将VFAT分区挂载为根文件系统，我们将EFI分区所在的<code>/dev/sda1</code>设置为rootfs。这样initramfs将无法挂载根文件系统，而这会让我们进入其中的救援Shell，如图4.42所示。</p>
+<p><img src="../../images/part2/boot-kernel-initramfs.png" alt="initramfs的救援Shell" /></p>
+<p>图4.42: initramfs的救援Shell</p>
+</blockquote>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>译者注：原文的启动参数是<code>root=/dev/sdb2 init=/bin/sh rootwait</code>，这里为了与中文版示例代码配套进行了修改。</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>译者注：所有<code>root=...</code>可接受的参数形式请参考内核源代码中的<a href="https://github.com/torvalds/linux/blob/master/init/do_mounts.c#L192-L221"><code>init/do_mounts.c</code></a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../part2/loader/bootkernel.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../part2/timer/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../part2/loader/bootkernel.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../part2/timer/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

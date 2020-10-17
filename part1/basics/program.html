@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>遵循UEFI标准编写程序 - 从零开始的UEFI裸机编程</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">从零开始的UEFI裸机编程</a></li><li class="chapter-item expanded affix "><a href="../../foreward.html">译者的话</a></li><li class="chapter-item expanded "><a href="../../part1/index.html"><strong aria-hidden="true">1.</strong> 第一部分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/intro.html"><strong aria-hidden="true">1.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../../part1/basics/index.html"><strong aria-hidden="true">1.2.</strong> Hello UEFI!</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/basics/program.html" class="active"><strong aria-hidden="true">1.2.1.</strong> 遵循UEFI标准编写程序</a></li><li class="chapter-item expanded "><a href="../../part1/basics/compile.html"><strong aria-hidden="true">1.2.2.</strong> 交叉编译为UEFI可执行格式</a></li><li class="chapter-item expanded "><a href="../../part1/basics/execute.html"><strong aria-hidden="true">1.2.3.</strong> 引导并运行UEFI应用程序</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/input/index.html"><strong aria-hidden="true">1.3.</strong> 获取按键输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/input/stip.html"><strong aria-hidden="true">1.3.1.</strong> 简单文本输入协议</a></li><li class="chapter-item expanded "><a href="../../part1/input/echo.html"><strong aria-hidden="true">1.3.2.</strong> 编写一个回显程序</a></li><li class="chapter-item expanded "><a href="../../part1/input/shell.html"><strong aria-hidden="true">1.3.3.</strong> 编写一个简单的Shell</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/graphic/index.html"><strong aria-hidden="true">1.4.</strong> 在屏幕上绘制图形</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/graphic/gop.html"><strong aria-hidden="true">1.4.1.</strong> 图形输出协议</a></li><li class="chapter-item expanded "><a href="../../part1/graphic/rectangle.html"><strong aria-hidden="true">1.4.2.</strong> 在屏幕上画一个矩形</a></li><li class="chapter-item expanded "><a href="../../part1/graphic/gui.html"><strong aria-hidden="true">1.4.3.</strong> 制作一个简单的GUI</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/mouse/index.html"><strong aria-hidden="true">1.5.</strong> 获取鼠标输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/mouse/spp.html"><strong aria-hidden="true">1.5.1.</strong> 简单指针协议</a></li><li class="chapter-item expanded "><a href="../../part1/mouse/pstat.html"><strong aria-hidden="true">1.5.2.</strong> 查看鼠标状态</a></li><li class="chapter-item expanded "><a href="../../part1/mouse/cursor.html"><strong aria-hidden="true">1.5.3.</strong> 实现鼠标指针</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/file/index.html"><strong aria-hidden="true">1.6.</strong> 文件读写</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/file/protocol.html"><strong aria-hidden="true">1.6.1.</strong> 文件相关的协议</a></li><li class="chapter-item expanded "><a href="../../part1/file/ls.html"><strong aria-hidden="true">1.6.2.</strong> 列出目录下文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guils.html"><strong aria-hidden="true">1.6.3.</strong> GUI下列出文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/cat.html"><strong aria-hidden="true">1.6.4.</strong> 读取文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guicat.html"><strong aria-hidden="true">1.6.5.</strong> GUI下浏览文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/edit.html"><strong aria-hidden="true">1.6.6.</strong> 编辑文本文件</a></li><li class="chapter-item expanded "><a href="../../part1/file/guiedit.html"><strong aria-hidden="true">1.6.7.</strong> GUI下编辑文本文件</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/extension/index.html"><strong aria-hidden="true">1.7.</strong> 扩展poiOS的功能</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part1/extension/image.html"><strong aria-hidden="true">1.7.1.</strong> 显示图片</a></li><li class="chapter-item expanded "><a href="../../part1/extension/exit.html"><strong aria-hidden="true">1.7.2.</strong> 实现退出功能</a></li><li class="chapter-item expanded "><a href="../../part1/extension/cursor.html"><strong aria-hidden="true">1.7.3.</strong> 更大的鼠标指针</a></li><li class="chapter-item expanded "><a href="../../part1/extension/screenshots.html"><strong aria-hidden="true">1.7.4.</strong> 功能展示</a></li></ol></li><li class="chapter-item expanded "><a href="../../part1/epilogue.html"><strong aria-hidden="true">1.8.</strong> 后记</a></li><li class="chapter-item expanded "><a href="../../part1/references.html"><strong aria-hidden="true">1.9.</strong> 参考资料</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/index.html"><strong aria-hidden="true">2.</strong> 第二部分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/intro.html"><strong aria-hidden="true">2.1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../../part2/output/index.html"><strong aria-hidden="true">2.2.</strong> 控制台输出</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/output/setattribute.html"><strong aria-hidden="true">2.2.1.</strong> 设置文字颜色和背景色</a></li><li class="chapter-item expanded "><a href="../../part2/output/teststring.html"><strong aria-hidden="true">2.2.2.</strong> 检测字符串是否能被显示</a></li><li class="chapter-item expanded "><a href="../../part2/output/querymode.html"><strong aria-hidden="true">2.2.3.</strong> 获取支持的文本显示模式</a></li><li class="chapter-item expanded "><a href="../../part2/output/setmode.html"><strong aria-hidden="true">2.2.4.</strong> 设置文本显示模式</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/input/index.html"><strong aria-hidden="true">2.3.</strong> 键盘输入</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/input/registerkeynotify.html"><strong aria-hidden="true">2.3.1.</strong> 绑定按键事件</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/loader/index.html"><strong aria-hidden="true">2.4.</strong> 加载和执行UEFI应用程序</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/loader/filepath.html"><strong aria-hidden="true">2.4.1.</strong> 查看当前设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/createdevpath.html"><strong aria-hidden="true">2.4.2.</strong> 创建设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/loaddevpath.html"><strong aria-hidden="true">2.4.3.</strong> 从设备路径加载镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/devicehandle.html"><strong aria-hidden="true">2.4.4.</strong> 设备路径的“设备”</a></li><li class="chapter-item expanded "><a href="../../part2/loader/createfulldevpath.html"><strong aria-hidden="true">2.4.5.</strong> 创建完整的设备路径</a></li><li class="chapter-item expanded "><a href="../../part2/loader/loadfulldevpath.html"><strong aria-hidden="true">2.4.6.</strong> 从完整的设备路径加载镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/startimage.html"><strong aria-hidden="true">2.4.7.</strong> 运行加载的镜像</a></li><li class="chapter-item expanded "><a href="../../part2/loader/bootkernel.html"><strong aria-hidden="true">2.4.8.</strong> 启动Linux: 编译并启动内核</a></li><li class="chapter-item expanded "><a href="../../part2/loader/bootoption.html"><strong aria-hidden="true">2.4.9.</strong> 启动Linux: 内核启动参数</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/timer/index.html"><strong aria-hidden="true">2.5.</strong> 计时器事件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/timer/wait.html"><strong aria-hidden="true">2.5.1.</strong> 暂停程序执行</a></li><li class="chapter-item expanded "><a href="../../part2/timer/async.html"><strong aria-hidden="true">2.5.2.</strong> 利用事件处理函数异步操作</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/other/index.html"><strong aria-hidden="true">2.6.</strong> 其他功能</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../part2/other/allocator.html"><strong aria-hidden="true">2.6.1.</strong> 内存分配器</a></li><li class="chapter-item expanded "><a href="../../part2/other/shutdown.html"><strong aria-hidden="true">2.6.2.</strong> 软关机</a></li></ol></li><li class="chapter-item expanded "><a href="../../part2/epilogue.html"><strong aria-hidden="true">2.7.</strong> 后记</a></li><li class="chapter-item expanded "><a href="../../part2/references.html"><strong aria-hidden="true">2.8.</strong> 参考资料</a></li></ol></li><li class="chapter-item expanded "><a href="../../about.html">关于本书</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">从零开始的UEFI裸机编程</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#遵循uefi标准编写程序" id="遵循uefi标准编写程序">遵循UEFI标准编写程序</a></h1>
+<h2><a class="header" href="#阅读uefi标准文档的方法" id="阅读uefi标准文档的方法">阅读UEFI标准文档的方法</a></h2>
+<p>UEFI标准文档可以在 <a href="https://uefi.org/specifications">https://uefi.org/specifications</a> 找到。本书参照的的是<a href="https://uefi.org/sites/default/files/resources/UEFI_Spec_2_3_1.pdf">2.3.1</a>版本<sup class="footnote-reference"><a href="#1">1</a></sup>。但是，对于本书中所涉及的范围，在不同的UEFI标准版本或是实现下，几乎不存在兼容性问题。</p>
+<p>UEFI标准文档包括C代码片段，并且UEFI固件上所运行的程序基本上都是用C语言编写的。例如，在UEFI标准文档&quot;4.1 UEFI Image Entry Point(P.75)&quot;中，定义了UEFI程序的入口点<sup class="footnote-reference"><a href="#2">2</a></sup>（图2.1）。</p>
+<p><img src="../../images/part1/spec-entry-point.png" alt="EFI_IMAGE_ENTRY_POINT的定义" /></p>
+<p>图2.1：标准文档中定义的入口点</p>
+<p>图2.1中展示了入口点函数的参数和返回值。由于入口点函数是通过编译期参数指定的，它可以取任何名字。参数和返回值被定义成了特殊的类型，这些类型也可以在标准文档中找到。比如在标准文档中搜索<code>EFI_STATUS</code>，我们可以找到&quot;2.3.1 Data Types(P.23)&quot;（图2.2）。</p>
+<p><img src="../../images/part1/spec-data-type.png" alt="UEFI数据类型" /></p>
+<p>图2.2：&quot;2.3.1 Data Types&quot; 中的 &quot;Table 6. Common UEFI Data Types&quot;（节选）</p>
+<p>图2.2展示了标准文档中常见类型的定义。在这里，<code>EFI_STATUS</code>表示的是状态码，它的类型是<code>UINTN</code>。<code>UINTN</code>是一个与平台相关的类型，在32位CPU上，它表示32位无符号整数（unsigned int），而在64位CPU上，它表示64位无符号整数（unsigned long long）<sup class="footnote-reference"><a href="#3">3</a></sup>。</p>
+<p>此外，UEFI标准中还定义了<code>IN</code>、<code>OUT</code>、<code>OPTIONAL</code>、<code>EFIAPI</code>等修饰符（Modifier），它们是对函数或参数的说明。在像EDK2或是gnu-efi这些既有的开发环境和工具链中<sup class="footnote-reference"><a href="#4">4</a></sup>，它们均被定义为空字符串。</p>
+<p>但是在上表中，我们并不能找到&quot;EFI_SYSTEM_TABLE&quot;的定义。这是由于<code>EFI_SYSTEM_TABLE</code>是一个结构体的别名，它在另一个章节被定义。通过搜索标准文档，它在&quot;4.3 EFI System Table(P.78)&quot;中被定义，并且它也有一个C语言代码的定义（图2.3）。</p>
+<p><img src="../../images/part1/spec-system-table.png" alt="EFI_SYSTEM_TABLE的定义" /></p>
+<p>图2.3：<code>EFI_SYSTEM_TABLE</code>的定义</p>
+<p>图2.3展示了结构体中的成员。UEFI标准文档中有一个叫做“协议（Protocol）”的概念。在UEFI中，功能被分为一个个单元，这些单元被称为“协议”，并且它们被定义成以<code>_PROTOCOL</code>结尾的结构体。名如<code>~_PROTOCOL</code>这样的结构体包含一系列的函数指针，通过这些函数指针可以调用UEFI固件中的内置功能。</p>
+<p>图2.3中的<code>EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL</code>是用来把字符输出到屏幕上的协议。那么它有哪些成员那？同样地，我们搜索标准文档，可以在&quot;11.4 Simple Text Output Protocol(P.424)&quot;中找到这个结构体的定义（图2.4）。</p>
+<p><img src="../../images/part1/spec-conout.png" alt="EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL的定义" /></p>
+<p>图2.4：<code>EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL</code>的定义</p>
+<p>查看图2.4中的&quot;Protocol Interface Structure&quot;，可以看到它有一个叫做&quot;OutputString&quot;的成员，这就是被用于在屏幕上显示文字的函数。图2.4中的&quot;Parameters&quot;是对各个成员的描述，并且&quot;OutputString&quot;拥有一个指向其定义页面的链接（下划线的&quot;OutputString()&quot;处）。OutputString在标准文档中的定义如图2.5所示。</p>
+<p><img src="../../images/part1/spec-outputstring.png" alt="OutputString()的定义" /></p>
+<p>图2.5：<code>OutputString</code>函数的定义</p>
+<p>它的参数的含义如下：</p>
+<ul>
+<li><code>IN EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This</code>: 指向<code>EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL</code>自身的指针</li>
+<li><code>IN CHAR16 *String</code>: 指向输出的字符串的指针，UEFI的字符是Unicode编码的（2字节/UCS-2）</li>
+</ul>
+<p>返回值类型为<code>EFI_STATUS</code>(在AMD64平台上是uint64_t)。这个值表示函数的执行结果。函数如果执行成功，那么返回0，如果产生错误或警告返回非0值。本书中只检查“函数是否返回0”（即函数是否成功执行），对于其他的函数返回值，请参考标准文档&quot;Appendix D Status Codes(P.1873)&quot;中对各个协议返回值的描述。</p>
+<p>由于UEFI所有协议中函数的第一个参数均为指向协议自身的指针，并且返回值类型均为<code>EFI_STATUS</code>类型。在接下来的章节中这点将作为约定，不再进行说明。</p>
+<p>此外，由于部分UEFI固件启动时会在屏幕上显示内容（比如厂商的logo），在这里，我们先进行一次清屏操作，再调用<code>OutputString</code>在屏幕上打印字符串。</p>
+<p>用于清屏的函数是<code>EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL</code>中的<code>ClearScreen</code>函数（标准文档&quot;11.4 Simple Text Output Protocol(P.437)&quot;）。虽然不在图2.4中，但它的描述仍然在&quot;Parameters&quot;中。<code>ClearScreen</code>的定义如图2.6所示，它的参数只有一个指向协议自身的<code>This</code>指针。</p>
+<p><img src="../../images/part1/spec-clearscreen.png" alt="ClearScreen()的定义" /></p>
+<p>图2.6: <code>ClearScreen</code>的定义</p>
+<p>在接下来的章节中，将会在示例代码中说明函数参数的定义。</p>
+<h2><a class="header" href="#编写uefi应用程序" id="编写uefi应用程序">编写UEFI应用程序</a></h2>
+<p>了解了入口点的标准和如何调用函数来向屏幕中打印字符串之后，是时候编写一个hello world程序了。这一章的示例代码在目录<code>hello</code>中 (日文版为<code>sample1_1_hello_uefi</code>)。</p>
+<p>在本书中使用的开发环境为Debian GNU/Linux，这是作者的工作环境。但是，你可以在几乎任何支持交叉编译和格式化U盘（具体将在之后叙述）的环境下开发。当然，任何文本编辑器都可以。</p>
+<p>在屏幕上打印&quot;Hello UEFI!&quot;的源代码如代码2.1所示。</p>
+<pre><code class="language-c">struct EFI_SYSTEM_TABLE {
+    char _buf[60];
+    struct EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL {
+        unsigned long long _buf;
+        unsigned long long (*OutputString)(
+            struct EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This,
+            unsigned short *String);
+        unsigned long long _buf2[4];
+        unsigned long long (*ClearScreen)(
+             struct EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This);
+    } *ConOut;
+};
+  
+void efi_main(void *ImageHandle __attribute__ ((unused)),
+    struct EFI_SYSTEM_TABLE *SystemTable)
+{
+    SystemTable-&gt;ConOut-&gt;ClearScreen(SystemTable-&gt;ConOut);
+    SystemTable-&gt;ConOut-&gt;OutputString(SystemTable-&gt;ConOut, L&quot;Hello UEFI!\n&quot;);
+    while (1);
+}
+
+</code></pre>
+<p>代码2.1： <code>sample1_1_hello_uefi/main.c</code></p>
+<p>代码2.1中的<code>EFI_SYSTEM_TABLE</code>仅定义了要使用的函数。我们用一个变量或是数组来占用未使用的函数的位置，来使得要使用的函数的地址正确。</p>
+<p><code>efi_main</code>是我们定义的入口点的函数名。在调用<code>OutputString</code>函数之前，我们先调用<code>ClearScreen</code>函数来清屏。函数末尾是一个无限循环，也就是说，这个函数永远不会返回。</p>
+<p>此处，所有像<code>EFI_STATUS</code>这样的UEFI类型都被写为<code>unsigned long long</code>。这仅仅是作者个人的偏好。这么做会降低程序的可移植性，对于UEFI类型的最佳做法是用typedef来定义它们。</p>
+<p>在接下来的内容中，我们假设把代码1.1的内容保存在文件<code>main.c</code>中。</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>由于作者用于测试的实机环境为Lenovo ThinkPad E450，其UEFI固件遵循2.3.1版标准</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>一般的C语言程序的入口点为main函数</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>译者注：此处更精确的描述应为32位为<code>uint32_t</code>, 64位为<code>uint64_t</code></p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>本书由于采用裸机编程，上述两者并不会被使用，但它们的源代码会作为调用UEFI功能的参考</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../part1/basics/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../part1/basics/compile.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../part1/basics/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../part1/basics/compile.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
