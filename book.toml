@@ -5,5 +5,9 @@ multilingual = false
 src = "src"
 title = "从零开始的UEFI裸机编程"
 
+[output.html]
+git-repository-url = "https://github.com/kagurazakakotori/ubmp-cn"
+git-repository-icon = "fa-github"
+
 [output.html.search]
 enable = false
