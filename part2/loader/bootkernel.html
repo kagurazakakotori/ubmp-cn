@@ -4,25 +4,17 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>启动Linux: 编译并启动内核 - 从零开始的UEFI裸机编程</title>
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="../../favicon.svg">
-        
-        
         <link rel="shortcut icon" href="../../favicon.png">
-        
         <link rel="stylesheet" href="../../css/variables.css">
         <link rel="stylesheet" href="../../css/general.css">
         <link rel="stylesheet" href="../../css/chrome.css">
@@ -30,9 +22,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="../../fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../../highlight.css">
@@ -40,9 +30,7 @@
         <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -101,8 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -118,7 +105,6 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                     </div>
 
                     <h1 class="menu-title">从零开始的UEFI裸机编程</h1>
@@ -127,11 +113,10 @@
                         <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
+
                     </div>
                 </div>
 
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
@@ -144,10 +129,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#启动linux-编译并启动内核" id="启动linux-编译并启动内核">启动Linux: 编译并启动内核</a></h1>
+                        <h1 id="启动linux-编译并启动内核"><a class="header" href="#启动linux-编译并启动内核">启动Linux: 编译并启动内核</a></h1>
 <p>自Linux内核3.3版本起，可以在编译时的设置(menuconfig)选择将其编译成UEFI应用程序，这个功能叫做EFI Stub。通过这个功能，我们可以用之前介绍过的运行UEFI应用程序的办法来启动Linux内核镜像(bzImage格式)。</p>
 <p>本节示例代码的目录为<code>boot-kernel</code> (日文版为<code>037_start_bzImage</code>)。</p>
-<h2><a class="header" href="#环境搭建" id="环境搭建">环境搭建</a></h2>
+<h2 id="环境搭建"><a class="header" href="#环境搭建">环境搭建</a></h2>
 <p>这里我们介绍在使用apt包管理器的发行版(Debian、Ubuntu等)下的环境搭建。</p>
 <p>通过<code>apt build-dep &lt;软件包名&gt;</code>命令，可以一键安装编译某个特定软件包的依赖包。</p>
 <p>内核镜像的包名是<code>linux-image-&lt;版本号&gt;-&lt;类型&gt;</code>。当前使用的内核版本号和类型可以通过<code>uname -r</code>命令来查看。因此，我们可以用下面这条命令来安装编译Linux内核要用到的环境。</p>
@@ -156,7 +141,7 @@
 <p>此外，menuconfig的依赖<code>libncurses5-dev</code>在运行<code>apt-get build-dep</code>时不会被安装，我们需要手动安装它。</p>
 <pre><code class="language-shell">$ sudo apt install libncurses5-dev
 </code></pre>
-<h2><a class="header" href="#获取linux内核源代码" id="获取linux内核源代码">获取Linux内核源代码</a></h2>
+<h2 id="获取linux内核源代码"><a class="header" href="#获取linux内核源代码">获取Linux内核源代码</a></h2>
 <p>源代码可以通过<code>apt-get source &lt;软件包名&gt;</code>来获取，但这里，我们使用<a href="https://kernel.org">kernel.org</a>上的最新的稳定版Linux内核。点击网页上的&quot;Latest Stable Kernel&quot;，就可以下载了。</p>
 <p><img src="../../images/part2/kernel-org.png" alt="kernel.org" /></p>
 <p>图4.32: kernel.org</p>
@@ -170,7 +155,7 @@
 <p>中国科学技术大学开源软件镜像站: <a href="https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/">https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/</a></p>
 <p>找到Latest Stable Kernel对应的<code>.tar.xz</code>文件点击下载即可。</p>
 </blockquote>
-<h2><a class="header" href="#配置编译选项" id="配置编译选项">配置编译选项</a></h2>
+<h2 id="配置编译选项"><a class="header" href="#配置编译选项">配置编译选项</a></h2>
 <p>接下来我们配置内核的编译选项。首先进入到解压后的Linux内核源代码的目录，并载入x86_64架构的默认编译选项。</p>
 <pre><code class="language-shell">$ cd linux-&lt;版本号&gt;
 $ make x86_64_defconfig
@@ -183,18 +168,18 @@ $ make x86_64_defconfig
 <p>找到并进入&quot;Processor type and features&quot;，并勾选&quot;EFI stub support&quot;（按&quot;Y&quot;键）。</p>
 <p><img src="../../images/part2/menuconfig-efistub.png" alt="勾选&quot;EFI stub support&quot;" /></p>
 <p>图4.34: 勾选&quot;EFI stub support&quot;</p>
-<h2><a class="header" href="#编译内核" id="编译内核">编译内核</a></h2>
+<h2 id="编译内核"><a class="header" href="#编译内核">编译内核</a></h2>
 <p>现在我们开始编译Linux内核。make命令的<code>-j</code>选项指定编译线程数，这里我们用<code>nproc</code>命令获得的逻辑CPU数量作为<code>-j</code>选项(编译线程数)的值来加快编译速度。</p>
 <pre><code class="language-shell">$ make -j $(nproc)
 </code></pre>
 <p>编译Linux内核可能需要比较长的时间，坐和放宽。</p>
 <p>编译完成后，我们会在<code>arch/x86/boot</code>目录下得到一个名为<code>bzImage</code>的镜像文件。</p>
-<h2><a class="header" href="#启动内核镜像" id="启动内核镜像">启动内核镜像</a></h2>
+<h2 id="启动内核镜像"><a class="header" href="#启动内核镜像">启动内核镜像</a></h2>
 <p>把<code>arch/x86/boot/bzImage</code>复制到之前我们存放<code>test.efi</code>的位置，并改名为<code>bzImage.efi</code>，再把上一节图4.30代码中的<code>test.efi</code>改成<code>bzImage.efi</code>并重新编译<sup class="footnote-reference"><a href="#1">1</a></sup>，就可以启动Linux内核了，如图4.35所示。</p>
 <p><img src="../../images/part2/boot-kernel.png" alt="启动时产生的内核错误" /></p>
 <p>图4.35: 启动时产生的内核错误</p>
 <p>虽然这里我们启动了Linux内核，但这里产生了一个内核错误(Kernel panic)，这是因为我们还没有指定根文件系统。下一节将介绍如何指定这些启动参数。</p>
-<h2><a class="header" href="#补充-使用menuconfig的搜索功能" id="补充-使用menuconfig的搜索功能">补充: 使用menuconfig的搜索功能</a></h2>
+<h2 id="补充-使用menuconfig的搜索功能"><a class="header" href="#补充-使用menuconfig的搜索功能">补充: 使用menuconfig的搜索功能</a></h2>
 <p>如果在menuconfig界面中找不到之前说的选项，我们可以尝试使用它的搜索功能。在menuconfig界面中按下<code>/</code>键可以打开搜索界面，如图4.36所示。</p>
 <p><img src="../../images/part2/menuconfig-search.png" alt="menuconfig的搜索界面" /></p>
 <p>图4.36: menuconfig的搜索界面</p>
@@ -214,17 +199,13 @@ $ make x86_64_defconfig
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../../part2/loader/startimage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../../part2/loader/bootoption.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -232,45 +213,32 @@ $ make x86_64_defconfig
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="../../part2/loader/startimage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
                     <a rel="next" href="../../part2/loader/bootoption.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
 
         <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
     </body>
 </html>

@@ -4,27 +4,18 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>从零开始的UEFI裸机编程</title>
-        
         <meta name="robots" content="noindex" />
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="favicon.svg">
-        
-        
         <link rel="shortcut icon" href="favicon.png">
-        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
@@ -32,9 +23,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -42,9 +31,7 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -103,8 +90,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -120,7 +106,6 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                     </div>
 
                     <h1 class="menu-title">从零开始的UEFI裸机编程</h1>
@@ -129,11 +114,10 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
+
                     </div>
                 </div>
 
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
@@ -146,7 +130,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#从零开始的uefi裸机编程" id="从零开始的uefi裸机编程">从零开始的UEFI裸机编程</a></h1>
+                        <h1 id="从零开始的uefi裸机编程"><a class="header" href="#从零开始的uefi裸机编程">从零开始的UEFI裸机编程</a></h1>
 <p>フルスクラッチで作る!UEFIベアメタルプログラミング</p>
 <p>大神 祐真 著, 神楽坂琴梨 译</p>
 <p>本书是一份入门向的UEFI编程教程，介绍如何在不使用外部库和开发工具链，只使用UEFI API的情况下编写UEFI应用程序，由两部分组成：</p>
@@ -160,7 +144,7 @@
 <p>书中的示例代码可以从 <a href="https://github.com/kagurazakakotori/ubmp-cn-code">https://github.com/kagurazakakotori/ubmp-cn-code</a> 获取，它们也是开源的。同样地，如果您发现示例代码的任何问题，也欢迎您在 <a href="https://github.com/kagurazakakotori/ubmp-cn-code/issues">Issues</a> 中提出。</p>
 <p>日文版的相关资料可以在作者大神祐真的网站 <a href="http://yuma.ohgami.jp">http://yuma.ohgami.jp</a> 获取。</p>
 <p>本书采用 <a href="https://github.com/rust-lang/mdBook">mdBook</a> 构建</p>
-<h1><a class="header" href="#译者的话" id="译者的话">译者的话</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="译者的话"><a class="header" href="#译者的话">译者的话</a></h1>
 <p>首先，感谢您阅读本书！</p>
 <p>这本书是我学习UEFI编程时所使用的资料，也是网上为数不多的这方面介绍的比较详细的资料。如果你尝试搜索&quot;uefi programming tutorial&quot;，会发现很多内容，像是<a href="https://wiki.osdev.org/UEFI">OSDev上关于UEFI的介绍</a>，只介绍到Hello world之后就结束了，看完之后一脸懵逼，不知道接下来该从何下手，至少我当时是这样的。这本书是我能找到的相对来说，我个人认为最适合入门的资料，这是我翻译这本书的第一个原因。</p>
 <p>翻译这本书的第二个原因是它介绍了另一种UEFI开发的方式。我刚初学的时候，在配置环境这块被EDK2劝退了。使用EDK2来开发虽然是最主流的开发方式，但是EDK2的环境搭建是非常痛苦的，它对于Linux的支持并不完美，而且很挑剔编译器，GCC只支持到5，说是支持Clang 9和Visual Studio 2019，但很多模块用这两者根本无法成功编译（我唯一成功的是在Windows上用VS2019编译出了EmulatorPkg）。后来我了解到了gnu-efi这个替代工具链，找到了<a href="https://qiita.com/tnishinaga/items/40755f414557faf45dcb">gnu-efiでUEFI遊びをはじめよう</a>这篇文章，它推荐了这本书的日文版作为参考。我读了一下发现还不错，而且它介绍的不用edk2或是gnu-efi这些工具的裸机编程，也是一种比较新鲜的方式。</p>
@@ -173,19 +157,19 @@
 <p>最后，再次感谢您阅读本书！</p>
 <p>神楽坂琴梨 (当然这不是我真名)</p>
 <p>2020年7月</p>
-<h1><a class="header" href="#第一部分" id="第一部分">第一部分</a></h1>
-<h1><a class="header" href="#引言" id="引言">引言</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第一部分"><a class="header" href="#第一部分">第一部分</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="引言"><a class="header" href="#引言">引言</a></h1>
 <p>感谢您阅读本书！</p>
 <p>本书将讨论在UEFI环境下进行“裸机编程”（Bare metal programming）。</p>
 <p>“裸机编程”是指编写在不使用操作系统的情况下直接操作硬件的程序的方式。</p>
 <p>“直接操作硬件”并非意味着需要编写程序来控制硬件一步一步地发出电信号。许多硬件在其内部的只读存储器（ROM）中拥有预置的软件，称为“固件”。通过正确地调用固件所提供的接口，我们可以达到“直接操作硬件”这一目的。</p>
 <p>BIOS是长期以来PC上最具有代表性的固件，而近年来，BIOS已经被标准化的UEFI取代。在打开计算机电源的时候，BIOS或是UEFI固件将会先运行，再从磁盘上引导操作系统。</p>
 <p>跟随着近年的趋势，本书将在UEFI上进行裸机编程。因此，本书将主要介绍如何使用UEFI固件内置的功能。</p>
-<h2><a class="header" href="#关于poios" id="关于poios">关于poiOS</a></h2>
+<h2 id="关于poios"><a class="header" href="#关于poios">关于poiOS</a></h2>
 <p>在本书中，我们将通过调用UEFI内置的功能，编写一个类似于操作系统的程序。这里我们称它为poiOS<sup class="footnote-reference"><a href="#1">1</a></sup>，其架构如图1所示：</p>
 <p><img src="part1/../images/part1/poios-arch.png" alt="poiOS的结构" /></p>
 <p>图1：poiOS的构造</p>
-<h2><a class="header" href="#获取本书相关资源" id="获取本书相关资源">获取本书相关资源</a></h2>
+<h2 id="获取本书相关资源"><a class="header" href="#获取本书相关资源">获取本书相关资源</a></h2>
 <p>本书日语原版的相关资源，例如PDF电子版、示例源代码以及预编译的二进制文件，可以在下面的网站找到</p>
 <ul>
 <li><a href="http://yuma.ohgami.jp">http://yuma.ohgami.jp</a></li>
@@ -201,7 +185,7 @@
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>译者注：poi为游戏《舰队Collection》中角色“夕立”的口癖</p>
 </div>
-<h1><a class="header" href="#hello-uefi" id="hello-uefi">Hello UEFI!</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-uefi"><a class="header" href="#hello-uefi">Hello UEFI!</a></h1>
 <p>本章将介绍在UEFI下进行裸机编程的流程，包括环境的搭建，和编写并执行第一个“Hello world”程序。</p>
 <p>在UEFI固件中加载并执行的程序被称为“UEFI应用程序”（UEFI Application）。本书介绍的裸机编程，是编写UEFI应用程序，并在PC上运行。其一般流程如下：</p>
 <ol>
@@ -210,8 +194,8 @@
 <li>创建启动盘引导并运行UEFI应用程序</li>
 </ol>
 <p>接下来，我们将一步步地编写我们的第一个“Hello UEFI!”程序。</p>
-<h1><a class="header" href="#遵循uefi标准编写程序" id="遵循uefi标准编写程序">遵循UEFI标准编写程序</a></h1>
-<h2><a class="header" href="#阅读uefi标准文档的方法" id="阅读uefi标准文档的方法">阅读UEFI标准文档的方法</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="遵循uefi标准编写程序"><a class="header" href="#遵循uefi标准编写程序">遵循UEFI标准编写程序</a></h1>
+<h2 id="阅读uefi标准文档的方法"><a class="header" href="#阅读uefi标准文档的方法">阅读UEFI标准文档的方法</a></h2>
 <p>UEFI标准文档可以在 <a href="https://uefi.org/specifications">https://uefi.org/specifications</a> 找到。本书参照的的是<a href="https://uefi.org/sites/default/files/resources/UEFI_Spec_2_3_1.pdf">2.3.1</a>版本<sup class="footnote-reference"><a href="#1">1</a></sup>。但是，对于本书中所涉及的范围，在不同的UEFI标准版本或是实现下，几乎不存在兼容性问题。</p>
 <p>UEFI标准文档包括C代码片段，并且UEFI固件上所运行的程序基本上都是用C语言编写的。例如，在UEFI标准文档&quot;4.1 UEFI Image Entry Point(P.75)&quot;中，定义了UEFI程序的入口点<sup class="footnote-reference"><a href="#2">2</a></sup>（图2.1）。</p>
 <p><img src="part1/basics/../../images/part1/spec-entry-point.png" alt="EFI_IMAGE_ENTRY_POINT的定义" /></p>
@@ -243,7 +227,7 @@
 <p><img src="part1/basics/../../images/part1/spec-clearscreen.png" alt="ClearScreen()的定义" /></p>
 <p>图2.6: <code>ClearScreen</code>的定义</p>
 <p>在接下来的章节中，将会在示例代码中说明函数参数的定义。</p>
-<h2><a class="header" href="#编写uefi应用程序" id="编写uefi应用程序">编写UEFI应用程序</a></h2>
+<h2 id="编写uefi应用程序"><a class="header" href="#编写uefi应用程序">编写UEFI应用程序</a></h2>
 <p>了解了入口点的标准和如何调用函数来向屏幕中打印字符串之后，是时候编写一个hello world程序了。这一章的示例代码在目录<code>hello</code>中 (日文版为<code>sample1_1_hello_uefi</code>)。</p>
 <p>在本书中使用的开发环境为Debian GNU/Linux，这是作者的工作环境。但是，你可以在几乎任何支持交叉编译和格式化U盘（具体将在之后叙述）的环境下开发。当然，任何文本编辑器都可以。</p>
 <p>在屏幕上打印&quot;Hello UEFI!&quot;的源代码如代码2.1所示。</p>
@@ -286,7 +270,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
 <p>本书由于采用裸机编程，上述两者并不会被使用，但它们的源代码会作为调用UEFI功能的参考</p>
 </div>
-<h1><a class="header" href="#交叉编译为uefi可执行格式" id="交叉编译为uefi可执行格式">交叉编译为UEFI可执行格式</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="交叉编译为uefi可执行格式"><a class="header" href="#交叉编译为uefi可执行格式">交叉编译为UEFI可执行格式</a></h1>
 <p>编写完源代码之后，我们需要将它编译成UEFI可以执行的PE32+<sup class="footnote-reference"><a href="#1">1</a></sup><sup class="footnote-reference"><a href="#2">2</a></sup>格式。由于Linux的可执行文件为ELF格式，这里我们需要进行交叉编译。</p>
 <p>在交叉编译之前，我们需要安装相对应的交叉编译器<code>gcc-mingw-w64-x86-64</code>：</p>
 <pre><code class="language-shell">$ sudo apt install gcc-mingw-w64-x86-64
@@ -317,7 +301,7 @@ $ make
 <div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
 <p>译者注：这里介绍的是中文版示例代码的Makefile，日文版编译得到的可执行文件位于<code>./fs/EFI/BOOT/BOOTX64.EFI</code></p>
 </div>
-<h1><a class="header" href="#引导并运行uefi应用程序" id="引导并运行uefi应用程序">引导并运行UEFI应用程序</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="引导并运行uefi应用程序"><a class="header" href="#引导并运行uefi应用程序">引导并运行UEFI应用程序</a></h1>
 <p>编译得到UEFI可执行文件之后，我们需要将其放在一个UEFI固件可以找到的位置，并创建一个启动盘来运行这个程序。使用U盘是一个简单的办法，接下来将介绍如何创建这么一个启动U盘。</p>
 <p>UEFI可以识别FAT格式的文件系统。因此，我们首先需要把U盘格式化成FAT32格式。</p>
 <p>格式化成FAT32格式可以使用任何你喜欢的方式。这里介绍使用<code>fdisk</code>来格式化的方式（例子中，U盘的设备路径为<code>/dev/sdb</code>）。</p>
@@ -412,9 +396,9 @@ $ make run
 <div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
 <p>译者注：使用<code>UsbMouseDxe.efi</code>而非<code>Ps2MouseDxe.efi</code>是由于QEMU默认的PS/2鼠标无法被识别，这里使用USB鼠标替代。具体无法识别的原因未知。</p>
 </div>
-<h1><a class="header" href="#获取按键输入" id="获取按键输入">获取按键输入</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="获取按键输入"><a class="header" href="#获取按键输入">获取按键输入</a></h1>
 <p>第1章介绍了如何阅读UEFI标准文档，以及如何编写并执行一个UEFI应用程序。本章将介绍如何获取按键输入，并编写一个简单的Shell。</p>
-<h1><a class="header" href="#简单文本输入协议" id="简单文本输入协议">简单文本输入协议</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="简单文本输入协议"><a class="header" href="#简单文本输入协议">简单文本输入协议</a></h1>
 <p>获取按键输入的函数位于简单文本输入协议（Simple Text Input Protocol）<code>EFI_SIMPLE_TEXT_INPUT_PROTOCOL</code>中。和上一章所介绍的简单文本输出协议<code>EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL</code>一样，它也是EFI系统表（System Table）<code>EFI_SYSTEM_TABLE</code>的一个成员。</p>
 <p><img src="part1/input/../../images/part1/spec-system-table.png" alt="EFI_SYSTEM_TABLE的定义" /></p>
 <p>图3.1：<code>EFI_SYSTEM_TABLE</code>的定义</p>
@@ -443,7 +427,7 @@ $ make run
 <li><code>unsigned short ScanCode</code>: 按键的扫描码（Scan Code），用于表示Unicode范围之外的按键（Esc键、方向键、功能键等）。扫描码的完整列表见标准文档&quot;Table 88(P.410)&quot;。本书接下来的内容中将只会使用Esc键（扫描码为<code>0x17</code>）。对于Unicode范围内的按键，其扫描码为0。</li>
 <li><code>unsigned short UnicodeChar</code>: 当输入按键在Unicode范围内时为其所对应的Unicode值，否则为0。</li>
 </ul>
-<h1><a class="header" href="#编写一个回显程序" id="编写一个回显程序">编写一个回显程序</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="编写一个回显程序"><a class="header" href="#编写一个回显程序">编写一个回显程序</a></h1>
 <p>代码3.3展示了一个回显程序的例子。这个程序使用<code>ReadKeyStroke</code>的函数，把输入的文字输出到屏幕上。本节示例代码的目录是<code>echo</code> (日文版为<code>sample2_1_echoback</code>)。</p>
 <pre><code class="language-c">struct EFI_INPUT_KEY {
     unsigned short ScanCode;
@@ -497,7 +481,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <p>当运行这个例子时候，你在键盘上的输入将会一模一样地显示在屏幕上（图3.2）。</p>
 <p><img src="part1/input/../../images/part1/echo.png" alt="回显程序运行时的截图" /></p>
 <p>图3.2: 回显程序执行时的截图</p>
-<h2><a class="header" href="#补充-等待键盘输入-waitforkey" id="补充-等待键盘输入-waitforkey">补充: 等待键盘输入 (WaitForKey)</a></h2>
+<h2 id="补充-等待键盘输入-waitforkey"><a class="header" href="#补充-等待键盘输入-waitforkey">补充: 等待键盘输入 (WaitForKey)</a></h2>
 <p>在代码2.3的<code>while</code>循环中，<code>ReadKeyStroke</code>将会被调用多次，直至其成功获取到一个按键输入。然而，在获取到输入前阻塞这个循环，是一个对CPU更为友好的方式。这一部分示例代码的目录是<code>echo-wait</code>。</p>
 <p>为此，<code>EFI_SIMPLE_TEXT_INPUT_PROTOCOL</code>提供了一个名为<code>WaitForKey</code>的成员来实现这样的阻塞输入的功能。（代码3.4/标准文档&quot;11.3 Simple Text Input Protocol(P.421)&quot;）</p>
 <pre><code class="language-c">struct EFI_SIMPLE_TEXT_INPUT_PROTOCOL {
@@ -534,7 +518,7 @@ SystemTable-&gt;BootServices-&gt;WaitForEvent(1,&amp;(SystemTable-&gt;ConIn-&gt;
 SystemTable-&gt;ConIn-&gt;ReadKeyStroke(SystemTable-&gt;ConIn, &amp;key);
 </code></pre>
 <p>代码3.6: 使用<code>WaitForKey</code>和<code>WaitForEvent</code>的例子</p>
-<h1><a class="header" href="#编写一个简单的shell" id="编写一个简单的shell">编写一个简单的Shell</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="编写一个简单的shell"><a class="header" href="#编写一个简单的shell">编写一个简单的Shell</a></h1>
 <p>现在，我们已经了解了在控制台屏幕上输入和输出字符的方法。要编写一个类似于操作系统的程序，我们首先需要编写一个类似于Shell的程序。本节示例代码的目录为<code>shell</code> (日文版为<code>sample2_2_shell</code>)。</p>
 <p>在这个例子中，我们会组织一个文件结构，这个结构将会是接下来编写类操作系统程序的基础。这里我们把一些代码适当地封装为函数，并且按照下面的规则放在多个文件中。</p>
 <ul>
@@ -630,9 +614,9 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
 <p>译者注：作者原文为“可选，本书不使用。另外，我也不知道这是什么（看门狗事件发生时的附加描述？）”，此处为译者的理解</p>
 </div>
-<h1><a class="header" href="#在屏幕上绘制图形" id="在屏幕上绘制图形">在屏幕上绘制图形</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="在屏幕上绘制图形"><a class="header" href="#在屏幕上绘制图形">在屏幕上绘制图形</a></h1>
 <p>现在我们已经有了一个简单的Shell，接下来我们来制作一个简单的图形化界面（GUI）。本章将介绍如何在屏幕上绘制图形，并在屏幕上画一个矩形作为图标。</p>
-<h1><a class="header" href="#图形输出协议gop" id="图形输出协议gop">图形输出协议(GOP)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="图形输出协议gop"><a class="header" href="#图形输出协议gop">图形输出协议(GOP)</a></h1>
 <p>绘制图形要用到的是图形输出协议（Graphics Output Protocol）<code>EFI_GRAPHICS_OUTPUT_PROTOCOL</code>（标准文档&quot;11.9 Graphics Output Protocol(P.464)&quot;），简称GOP。但是，这个协议并不是系统表中的成员。</p>
 <p>事实上，大部分的协议需要使用<code>SystemTable-&gt;BootServices</code>中的函数来获得它的入口地址（标准文档&quot;4.4 EFI Boot Services Table(P.80)&quot;）。之前我们提到过，<code>BootServices</code>是一个<code>EFI_BOOT_SERVICES</code>类型的结构体，它包括一系列的函数（服务），这些函数主要用于实现引导加载程序(Bootloader)。<sup class="footnote-reference"><a href="#1">1</a></sup></p>
 <p>对于大部分不在系统表中的协议，可以通过<code>SystemTable-&gt;BootServices-&gt;LocateProtocol</code>函数（标准文档&quot;6.3 Protocol Handler Services(P.184)&quot;）来获取它的入口地址。<code>LocateProtocol</code>函数通过每个协议唯一的GUID来定位它们，而各个协议对应的GUID在标准文档中被定义。例如，图4.1中的GUID就是我们这里要用到的<code>EFI_GRAPHICS_OUTPUT_PROTOCOL</code>的GUID。</p>
@@ -719,7 +703,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
 <p>译者注：事实上，要判定是何种像素格式，可以完全不需要输出数值，使用if-else或是switch-case语句即可</p>
 </div>
-<h1><a class="header" href="#在屏幕上画一个矩形" id="在屏幕上画一个矩形">在屏幕上画一个矩形</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="在屏幕上画一个矩形"><a class="header" href="#在屏幕上画一个矩形">在屏幕上画一个矩形</a></h1>
 <p>了解了帧缓冲区起始地址和像素格式之后，可以看出，要在屏幕上绘制图形，所要做的就是写入帧缓冲区对应的像素信息。本节将以画一个矩形为例子来介绍这个过程，示例代码的目录为<code>draw-rect</code> (日文版为<code>sample3_1_draw_rect</code>)。</p>
 <p>首先，我们新建一个存放图形处理相关的代码的源文件<code>graphics.c</code>，并在其中创建一个函数<code>draw_pixel</code>，这个函数用于在屏幕上指定位置绘制一个像素（代码4.6）。</p>
 <pre><code class="language-c">void draw_pixel(unsigned int x, unsigned int y,
@@ -804,7 +788,7 @@ void shell(void)
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>译者注：传递结构体作为参数开销较大，这里更好的做法是传递结构体指针</p>
 </div>
-<h1><a class="header" href="#制作一个简单的gui" id="制作一个简单的gui">制作一个简单的GUI</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="制作一个简单的gui"><a class="header" href="#制作一个简单的gui">制作一个简单的GUI</a></h1>
 <p>这一章的最后，我们来制作一个非常简单的GUI，并且往Shell中加入一个<code>gui</code>命令来调用它。本节示例代码的目录为<code>guimode</code> (日文版为<code>sample3_2_add_gui_mode</code>)。</p>
 <p>首先，我们为&quot;GUI&quot;创建一个源文件<code>gui.c</code>。这个简单的GUI只有一个矩形图标，其实现如代码4.10所示。</p>
 <pre><code class="language-c">#include &quot;efi.h&quot;
@@ -858,9 +842,9 @@ void shell(void)
 <p>如图4.3所示，当执行<code>gui</code>命令时，会进入一个全新的界面，其中只有一个矩形图标。</p>
 <p><img src="part1/graphic/../../images/part1/guimode.png" alt="显示一个矩形图标的简易GUI" /></p>
 <p>图4.3: 显示一个矩形图标的简易GUI</p>
-<h1><a class="header" href="#获取鼠标输入" id="获取鼠标输入">获取鼠标输入</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="获取鼠标输入"><a class="header" href="#获取鼠标输入">获取鼠标输入</a></h1>
 <p>接下来，我们要在poiOS中加入对鼠标的支持。这一章将介绍如何获取鼠标输入，并且根据输入值来绘制光标。</p>
-<h1><a class="header" href="#简单指针协议" id="简单指针协议">简单指针协议</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="简单指针协议"><a class="header" href="#简单指针协议">简单指针协议</a></h1>
 <p>用于获取鼠标输入的是简单指针协议（Simple Pointer Protocol）<code>EFI_SIMPLE_POINTER_PROTOCOL</code>（标准文档&quot;11.5 Simple Pointer Protocol(P.439)&quot;）。不要害怕，这里的指针不是内存地址，而是诸如鼠标、轨迹球、触摸板这样的指针设备。本书所要用到的定义如代码5.1所示。</p>
 <pre><code class="language-c">struct EFI_SIMPLE_POINTER_PROTOCOL {
     unsigned long long (*Reset)(
@@ -894,7 +878,7 @@ void shell(void)
 <p>代码5.2: <code>EFI_SIMPLE_POINTER_STATE</code>的定义</p>
 <p>这个结构体各成员的含义如代码5.2中注释所述。此外，对于一般的鼠标而言，其<code>RelativeMovementZ</code>恒为0。（由于作者并没有什么特别的鼠标，在作者的尝试中，没有出现过不为0的情况）</p>
 <p><code>EFI_SIMPLE_POINTER_PROTOCOL</code>中的<code>WaitForInput</code>是用于等待鼠标输入的函数。和之前<a href="part1/mouse/../input/echo.html">3.2 编写一个回显程序</a>中提到的<code>WaitForKey</code>一样，它也作为<code>WaitForEvent</code>函数的参数来使用。</p>
-<h1><a class="header" href="#查看鼠标状态pstat命令" id="查看鼠标状态pstat命令">查看鼠标状态(pstat命令)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="查看鼠标状态pstat命令"><a class="header" href="#查看鼠标状态pstat命令">查看鼠标状态(pstat命令)</a></h1>
 <p>了解了如何通过<code>EFI_SIMPLE_POINTER_PROTOCOL</code>获取鼠标状态之后，接下来我们来尝试实现一个在终端上打印鼠标状态的功能。这里我们把这个功能作为Shell中的<code>pstat</code>命令来实现。本节示例代码的目录为<code>pstat</code> (日文版为<code>sample4_1_get_pointer_state</code>)。</p>
 <p>首先，和上一章的图形输出协议一样，我们需要调用<code>LocateProtocol</code>函数来获取它的入口地址。因此，我们也要向<code>efi.c</code>的<code>efi_init</code>函数中加入处理<code>EFI_SIMPLE_POINTER_PROTOCOL</code>的代码，并将其设置为一个全局变量，如代码5.3所示。</p>
 <pre><code class="language-c">#include &quot;efi.h&quot;
@@ -986,7 +970,7 @@ void shell(void)
 <p>代码5.4的运行时截图如图5.1所示。</p>
 <p><img src="part1/mouse/../../images/part1/pstat.png" alt="执行pstat命令的截图" /></p>
 <p>图5.1: 执行pstat命令的截图</p>
-<h1><a class="header" href="#实现鼠标指针" id="实现鼠标指针">实现鼠标指针</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="实现鼠标指针"><a class="header" href="#实现鼠标指针">实现鼠标指针</a></h1>
 <p>现在，我们已经知道了如何在屏幕上绘制图形和如何获取鼠标的输入值，接下来我们将向那个只有一个矩形图标的&quot;GUI&quot;加入一个鼠标指针。本节示例代码的目录为<code>cursor</code> (日文版为<code>sample4_2_add_cursor</code>)。</p>
 <p>为了简化实现，这里我们的鼠标指针只有1像素。加入了鼠标指针的<code>gui.c</code>如代码5.5所示。</p>
 <pre><code class="language-c">#include &quot;efi.h&quot;
@@ -1113,9 +1097,9 @@ void gui(void)
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>译者注：这里由于译者更新了图片，删去了原作者的两条关于图片的注释</p>
 </div>
-<h1><a class="header" href="#文件读写" id="文件读写">文件读写</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="文件读写"><a class="header" href="#文件读写">文件读写</a></h1>
 <p>在我们搞定鼠标之后，该整一些能点的东西了。UEFI固件提供了几个接口（协议）来在FAT文件系统中进行文件操作，接下来我们将利用它们来添加一系列的文件操作功能。</p>
-<h1><a class="header" href="#文件相关的协议" id="文件相关的协议">文件相关的协议</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="文件相关的协议"><a class="header" href="#文件相关的协议">文件相关的协议</a></h1>
 <p>UEFI支持FAT文件系统。用于进行文件操作的协议是简单文件系统协议（Simple File System Protocol）<code>EFI_SIMPLE_FILE_SYSTEM_PROTOCOL</code>和文件协议（File Protocol）<code>EFI_FILE_PROTOCOL</code>（标准文档&quot;12.4 Simple File System Protocol(P.494)&quot;和&quot;12.5 EFI File Protocol(P.497)&quot;）。</p>
 <p>代码6.1展示了<code>EFI_SIMPLE_FILE_SYSTEM_PROTOCOL</code>的定义。</p>
 <pre><code class="language-c">struct EFI_SIMPLE_FILE_SYSTEM_PROTOCOL {
@@ -1155,7 +1139,7 @@ void gui(void)
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>译者注：这个结构体的作用类似于Unix的文件描述符和Windows的文件句柄，但是更加面向对象</p>
 </div>
-<h1><a class="header" href="#列出目录下文件ls命令" id="列出目录下文件ls命令">列出目录下文件(ls命令)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="列出目录下文件ls命令"><a class="header" href="#列出目录下文件ls命令">列出目录下文件(ls命令)</a></h1>
 <p>我们先来实现一个ls命令来列出根目录下所有文件。本节示例代码的目录为<code>ls</code> (日文版为<code>sample5_1_ls</code>)。</p>
 <p>首先，在<code>efi.c</code>的<code>efi_init</code>函数中调用<code>LocateProtocol</code>函数来加载<code>EFI_SIMPLE_FILE_SYSTEM_PROTOCOL</code>（代码6.3）。</p>
 <pre><code class="language-c">struct EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *SFSP;  /* 新增 */
@@ -1286,7 +1270,7 @@ void shell(void)
 <p>图6.1展示了<code>ls</code>命令运行时的样子。</p>
 <p><img src="part1/file/../../images/part1/ls.png" alt="ls命令运行时的样子" /></p>
 <p>图6.1: <code>ls</code>命令运行时的样子</p>
-<h1><a class="header" href="#gui下列出文件" id="gui下列出文件">GUI下列出文件</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gui下列出文件"><a class="header" href="#gui下列出文件">GUI下列出文件</a></h1>
 <p>直到现在，我们的GUI仅仅显示了一个矩形图标，并没有任何实际的功能。这一节我们来把文件名放入矩形中。本节示例代码的目录为<code>gui-ls</code> (日文版为<code>sample5_2_gui_ls</code>)。</p>
 <p>处理的过程很简单，在列出目录下的文件名后，再绘制包裹这些文件名的矩形。这里为了简化处理，我们假定文件名都是三字符长的。</p>
 <p>首先，我们需要在文件信息结构体中加入矩形的信息，和矩形是否高亮。代码6.10展示了<code>file.h</code>中的更改。</p>
@@ -1385,7 +1369,7 @@ void gui(void)
 <p>图6.2展示了上述代码运行时的样子。</p>
 <p><img src="part1/file/../../images/part1/gui-ls.png" alt="加入了列出文件功能的GUI" /></p>
 <p>图6.2: 加入了列出文件功能的GUI</p>
-<h1><a class="header" href="#读取文本文件cat命令" id="读取文本文件cat命令">读取文本文件(cat命令)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="读取文本文件cat命令"><a class="header" href="#读取文本文件cat命令">读取文本文件(cat命令)</a></h1>
 <p>在获取到文件列表之后，接下来我们实现读取文件内容的功能。这里我们在Shell中加入一个简易的<code>cat</code>命令。本节示例代码的目录为<code>cat</code> (日文版为<code>sample5_3_cat</code>)。</p>
 <p>由于我们的主要目标是学习如何调用UEFI固件接口来读取文件，这里为了简化处理，我们要实现的<code>cat</code>命令所读取的文件是固定的。换句话说，这个<code>cat</code>命令不接受文件名作为参数。这里我们要读取的文件名为&quot;abc&quot;。</p>
 <p>之前介绍了对于目录，调用<code>EFI_FILE_PROTOCOL</code>中的<code>Read</code>函数（标准文档&quot;12.5 EFI File Protocol(P.504)&quot;）是读取目录中的一项文件/目录名。对于文件，调用这个函数则是读取其中的内容。</p>
@@ -1480,7 +1464,7 @@ void shell(void)
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>译者注：原文介绍的是<code>nkf</code>命令，命令为<code>nkf -w16L0 orig.txt &gt; unicode.txt</code>。这里用更常见的<code>iconv</code>命令替代。</p>
 </div>
-<h1><a class="header" href="#gui下浏览文本文件" id="gui下浏览文本文件">GUI下浏览文本文件</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gui下浏览文本文件"><a class="header" href="#gui下浏览文本文件">GUI下浏览文本文件</a></h1>
 <p>了解了如何读取文件内容之后，和之前的<code>ls</code>一样，接下来我们把这一功能扩展到GUI模式中。本节示例代码的目录为<code>gui-cat</code> (日文版为<code>sample5_4_gui_cat</code>)。这里我们将要实现这三个功能：</p>
 <ol>
 <li>在文件图标（矩形）上单击进入文件浏览模式</li>
@@ -1583,7 +1567,7 @@ void gui(void)
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>译者注：这里对于欧甘字母的解释与原书不同</p>
 </div>
-<h1><a class="header" href="#编辑文本文件edit命令" id="编辑文本文件edit命令">编辑文本文件(edit命令)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="编辑文本文件edit命令"><a class="header" href="#编辑文本文件edit命令">编辑文本文件(edit命令)</a></h1>
 <p>现在我们已经知道了如何读取文件，接下来我们来尝试写入文件。和之前一样，这里我们在Shell中加入一个简单的<code>edit</code>命令，这个命令覆盖写入一个文本文件。本节示例代码的目录为<code>edit</code> (日文版为<code>sample5_5_edit</code>)。</p>
 <p>用于写入文件的是<code>EFI_FILE_PROTOCOL</code>中的<code>Write</code>函数，代码6.18展示了它的定义。</p>
 <pre><code class="language-c">unsigned long long (*Write)(struct EFI_FILE_PROTOCOL *This,
@@ -1673,7 +1657,7 @@ void shell(void)
 <p>图6.6: <code>edit</code>命令运行时的样子</p>
 <p><img src="part1/file/../../images/part1/edit-after.png" alt="edit命令运行后的&quot;abc&quot;" /></p>
 <p>图6.7: <code>edit</code>命令运行后的文件&quot;abc&quot;</p>
-<h1><a class="header" href="#gui下编辑文本文件" id="gui下编辑文本文件">GUI下编辑文本文件</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gui下编辑文本文件"><a class="header" href="#gui下编辑文本文件">GUI下编辑文本文件</a></h1>
 <p>本章的最后，我们还是要将上一节实现的编辑功能集成到GUI模式中。本节示例代码的目录为<code>gui-edit</code> (日文版为<code>sample5_6_gui_edit</code>)。</p>
 <p>这里我们要实现下面这两点功能：</p>
 <ol>
@@ -1788,12 +1772,12 @@ void edit(unsigned short *file_name)
 <p>图6.8: 输入文件名的界面</p>
 <p><img src="part1/file/../../images/part1/gui-edit.png" alt="编辑界面" /></p>
 <p>图6.9: 编辑界面</p>
-<h1><a class="header" href="#扩展poios的功能" id="扩展poios的功能">扩展poiOS的功能</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="扩展poios的功能"><a class="header" href="#扩展poios的功能">扩展poiOS的功能</a></h1>
 <p>至此，我们已经讲述了如何调用UEFI固件的功能来实现一个类似于操作系统的的程序。然而，很多功能是不完整的，这章将介绍一下扩展poiOS功能的例子，当然，你也可以在这一基础上自己发挥。</p>
 <p>本章是一系列对于poiOS功能的扩展的例子。本章的示例代码位于目录<code>poios</code>中 (日文版为<code>sample_poios</code>)。</p>
-<h1><a class="header" href="#显示图片" id="显示图片">显示图片</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="显示图片"><a class="header" href="#显示图片">显示图片</a></h1>
 <p>在1.4中，我们了解了帧缓冲区的起始地址和像素的格式，并绘制了一个矩形。进一步地，我们可以通过类似的方式在屏幕上显示图片。</p>
-<h2><a class="header" href="#新建blt函数" id="新建blt函数">新建blt函数</a></h2>
+<h2 id="新建blt函数"><a class="header" href="#新建blt函数">新建blt函数</a></h2>
 <p>首先，我们新建一个从我们指定的缓冲区向帧缓冲区传送内容的函数<code>blt</code>(Block Transfer)，如代码7.1所示</p>
 <pre><code class="language-c">void blt(unsigned char img[], unsigned int img_width, unsigned int img_height)
 {
@@ -1820,7 +1804,7 @@ void edit(unsigned short *file_name)
 </code></pre>
 <p>代码7.1: <code>sample_poios/graphics.c:blt</code></p>
 <p>上面的代码将缓冲区<code>img</code>中的图像逐字节拷贝到帧缓冲区。图像始终从点(0, 0)开始绘制。</p>
-<h2><a class="header" href="#在shell中加入查看图片的命令view" id="在shell中加入查看图片的命令view">在Shell中加入查看图片的命令view</a></h2>
+<h2 id="在shell中加入查看图片的命令view"><a class="header" href="#在shell中加入查看图片的命令view">在Shell中加入查看图片的命令view</a></h2>
 <p>接下来，我们向Shell中加入一个新的命令<code>view</code>，这个命令使用上面的<code>blt</code>函数来在屏幕上显示图片（代码7.2）。这里的图片文件是以UEFI所兼容的像素格式保存的原始(RAW)图像文件。</p>
 <pre><code class="language-c">/* ...省略... */
 #define MAX_IMG_BUF  4194304      /* 4MB, 新增 */
@@ -1877,7 +1861,7 @@ void shell(void)
 <pre><code class="language-shell">$ convert hoge.png -resize 640x -depth 8 yux.bgra
 </code></pre>
 </blockquote>
-<h2><a class="header" href="#在gui模式中加入图片查看功能" id="在gui模式中加入图片查看功能">在GUI模式中加入图片查看功能</a></h2>
+<h2 id="在gui模式中加入图片查看功能"><a class="header" href="#在gui模式中加入图片查看功能">在GUI模式中加入图片查看功能</a></h2>
 <p>最后，我们修改<code>gui.c</code>，让它在我们点击图片文件时调用<code>view</code>函数来显示它（代码7.3）。在poiOS中，我们把所有文件名以小写字母&quot;i&quot;开头的文件都当作图片文件。</p>
 <pre><code class="language-c">/* 处理文件图标 */
 for (idx = 0; idx &lt; file_num; idx++) {
@@ -1907,8 +1891,8 @@ for (idx = 0; idx &lt; file_num; idx++) {
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>调用后返回成功的状态，但屏幕上没有任何变化。</p>
 </div>
-<h1><a class="header" href="#实现退出功能" id="实现退出功能">实现退出功能</a></h1>
-<h2><a class="header" href="#退出shell功能" id="退出shell功能">退出Shell功能</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="实现退出功能"><a class="header" href="#实现退出功能">实现退出功能</a></h1>
+<h2 id="退出shell功能"><a class="header" href="#退出shell功能">退出Shell功能</a></h2>
 <p>我们来加入一条<code>exit</code>命令用来退出Shell，这个功能实现起来非常容易，只需对<code>shell.c</code>中的<code>shell</code>函数稍作修改即可（代码7.4）。</p>
 <pre><code class="language-c">void shell(void)
 {
@@ -1926,7 +1910,7 @@ for (idx = 0; idx &lt; file_num; idx++) {
 }
 </code></pre>
 <p>代码7.4: 在<code>sample_poios/shell.c:shell</code>实现<code>exit</code>命令</p>
-<h2><a class="header" href="#退出gui功能" id="退出gui功能">退出GUI功能</a></h2>
+<h2 id="退出gui功能"><a class="header" href="#退出gui功能">退出GUI功能</a></h2>
 <p>接下来，我们在GUI的右上角放一个[X]按钮，并且实现点击这个按钮来退出GUI的功能。</p>
 <p>这里要修改的只有<code>gui.c</code>这个源文件。首先，我们创建两个函数，一个名为<code>put_exit_button</code>，用来在右上角绘制[X]按钮；另一个名为<code>update_exit_button</code>，用来更新按钮状态（是否高亮）和判定点击事件(代码7.5)。</p>
 <pre><code class="language-c">/* ...省略... */
@@ -2036,7 +2020,7 @@ unsigned char update_exit_button(int px, int py, unsigned char is_clicked)
 </code></pre>
 <p>代码7.6: <code>sample_poios/gui.c:gui</code></p>
 <p>上面这段代码中，在第一次进入至GUI或是从其它界面回到GUI时（例如从<code>cat</code>命令返回），我们调用<code>put_exit_button</code>函数来绘制[X]按钮。并且在主循环的最后调用<code>update_exit_button</code>函数来更新[X]按钮的状态，并通过这个函数的返回值来决定是否要跳出主循环。</p>
-<h1><a class="header" href="#更大的鼠标指针" id="更大的鼠标指针">更大的鼠标指针</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="更大的鼠标指针"><a class="header" href="#更大的鼠标指针">更大的鼠标指针</a></h1>
 <p>尽管我们之前实现的1像素大的鼠标指针是能用的，但是它太小了，并不好用。现在我们来把它改成更大的4x4像素的鼠标指针。</p>
 <p>实现这点只需要修改<code>gui.c</code>这个源文件，如代码7.7所示。</p>
 <pre><code class="language-c">#define CURSOR_WIDTH   4  /* 追加 */
@@ -2117,14 +2101,14 @@ void put_cursor(int x, int y)
 3 ■ ■ □ □
 </code></pre>
 <p>图7.1: 所绘制的光标形状</p>
-<h1><a class="header" href="#功能展示" id="功能展示">功能展示</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="功能展示"><a class="header" href="#功能展示">功能展示</a></h1>
 <p><img src="part1/extension/../../images/part1/poios-gui.png" alt="改进后的GUI" /></p>
 <p>图7.1: 改进后的GUI</p>
 <p><img src="part1/extension/../../images/part1/poios-view-image.png" alt="图片浏览模式" /></p>
 <p>图7.2: 图片浏览模式</p>
 <p><img src="part1/extension/../../images/part1/poios-exit.png" alt="执行exit命令退出到EFI Shell" /></p>
 <p>图7.3: 执行<code>exit</code>命令退出到EFI Shell</p>
-<h1><a class="header" href="#后记" id="后记">后记</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="后记"><a class="header" href="#后记">后记</a></h1>
 <p>非常感谢您阅读本书！</p>
 <p>目前为止，我们已经讲述了如何在UEFI下进行裸机编程。如果你能读完本书后感到“啊！原来是这么回事”，将是我莫大的荣幸。</p>
 <p>UEFI十分精妙，它具有许多内建的功能，也可以做很多事情。当我阅读UEFI标准文档的目录时，我惊叹道“这些居然可以在固件层面上做到”<sup class="footnote-reference"><a href="#1">1</a></sup>。并且，即便在软件上进行最底层<sup class="footnote-reference"><a href="#2">2</a></sup>操作时，也不需要考虑到内存映射这些问题，这也是很令人惊讶的。</p>
@@ -2187,8 +2171,8 @@ msg:
 <div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
 <p>译者注：x86_64下的UEFI遵循<a href="https://en.wikipedia.org/wiki/X86_calling_conventions#Microsoft_x64_calling_convention">Microsoft x64 calling convention</a></p>
 </div>
-<h1><a class="header" href="#参考资料" id="参考资料">参考资料</a></h1>
-<h2><a class="header" href="#本书所参考的资料" id="本书所参考的资料">本书所参考的资料</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h1>
+<h2 id="本书所参考的资料"><a class="header" href="#本书所参考的资料">本书所参考的资料</a></h2>
 <ul>
 <li>
 <p>UEFI标准</p>
@@ -2220,7 +2204,7 @@ msg:
 </ul>
 </li>
 </ul>
-<h2><a class="header" href="#除本书外的关于uefi裸机编程的资料" id="除本书外的关于uefi裸机编程的资料">除本书外的关于UEFI裸机编程的资料</a></h2>
+<h2 id="除本书外的关于uefi裸机编程的资料"><a class="header" href="#除本书外的关于uefi裸机编程的资料">除本书外的关于UEFI裸机编程的资料</a></h2>
 <ul>
 <li>
 <p>我的博客 (へにゃぺんて＠日々勉強のまとめ)</p>
@@ -2252,12 +2236,12 @@ msg:
 </ul>
 </li>
 </ul>
-<h1><a class="header" href="#第二部分" id="第二部分">第二部分</a></h1>
-<h1><a class="header" href="#引言-1" id="引言-1">引言</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="第二部分"><a class="header" href="#第二部分">第二部分</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="引言-1"><a class="header" href="#引言-1">引言</a></h1>
 <p>感谢您阅读本书！</p>
 <p>本书是我关于UEFI裸机编程系列的第二册。除了上册（第一部分）介绍过的内容之外，UEFI还有许多其他的功能。本书将会介绍一些上册所未涵盖的功能，你可以认为本书要介绍的是UEFI编程技巧。</p>
 <p>由于是对第一部分的补充，我们会在这里直接使用第一部分介绍过的功能，而不进行说明。在阅读这一部分之前，如果你并没有阅读过第一部分，我建议你先去阅读它。然而，由于每章节的源代码都是独立的，你仍然可以直接阅读这部分，尝试运行或是修改这些代码，哪怕你并不了解它的含义。</p>
-<h2><a class="header" href="#获取本书相关资源-1" id="获取本书相关资源-1">获取本书相关资源</a></h2>
+<h2 id="获取本书相关资源-1"><a class="header" href="#获取本书相关资源-1">获取本书相关资源</a></h2>
 <p>本书日语原版的相关资源，例如PDF电子版、示例源代码以及预编译的二进制文件，可以在下面的网站找到</p>
 <ul>
 <li><a href="http://yuma.ohgami.jp">http://yuma.ohgami.jp</a></li>
@@ -2270,9 +2254,9 @@ msg:
 <ul>
 <li><a href="https://github.com/kagurazakakotori/ubmp-cn-code">https://github.com/kagurazakakotori/ubmp-cn-code</a></li>
 </ul>
-<h1><a class="header" href="#控制台输出" id="控制台输出">控制台输出</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="控制台输出"><a class="header" href="#控制台输出">控制台输出</a></h1>
 <p>本章将会介绍和<code>EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL</code>相关的编程技巧。</p>
-<h1><a class="header" href="#设置文字颜色和背景色" id="设置文字颜色和背景色">设置文字颜色和背景色</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="设置文字颜色和背景色"><a class="header" href="#设置文字颜色和背景色">设置文字颜色和背景色</a></h1>
 <p>通过调用<code>SetAttribute()</code>函数我们可以设置文字的颜色和背景色（图2.1）。</p>
 <p>本节示例代码的目录为<code>text-color</code> (日文版为<code>010_simple_text_output_set_attribute</code>)。<sup class="footnote-reference"><a href="#1">1</a></sup></p>
 <pre><code class="language-c">//*******************************************************
@@ -2363,7 +2347,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>不能理解为什么固件实现上要在没有任何内容被输出到屏幕时忽略对<code>ClearScreen()</code>的调用。这里要实现的效果是在调用<code>SetAttribute()</code>之后改变整个画面的背景色。</p>
 </div>
-<h1><a class="header" href="#检测字符串是否能被显示" id="检测字符串是否能被显示">检测字符串是否能被显示</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="检测字符串是否能被显示"><a class="header" href="#检测字符串是否能被显示">检测字符串是否能被显示</a></h1>
 <p>UEFI的字符编码虽然是Unicode，包括了中文和日语字符，但是在各个UEFI固件的实现中，可以显示的Unicode字符却是存在差异的。</p>
 <p>我们可以使用<code>TestString()</code>函数可以来检测一个字符串或者某个字符是否能被显示，图2.4展示了它的定义。</p>
 <p>本节示例代码的目录为<code>test-string</code> (日文版为<code>011_simple_text_output_test_string</code>)。</p>
@@ -2435,7 +2419,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>译者注：由于译者没有支持中文显示的设备，略去了三个test均成功的结果图片。</p>
 </div>
-<h1><a class="header" href="#获取支持的文本显示模式" id="获取支持的文本显示模式">获取支持的文本显示模式</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="获取支持的文本显示模式"><a class="header" href="#获取支持的文本显示模式">获取支持的文本显示模式</a></h1>
 <p>到目前为止，我们的控制台输出所用的都是UEFI默认的文本显示模式(Text mode)。通过切换到其它设备支持的文本显示模式，我们可以改变屏幕显示的行数和列数。本节将讲述如何获取设备支持的文本显示模式。</p>
 <p>本节示例代码的目录为<code>query-text-mode</code> (日文版为<code>012_simple_text_output_query_mode</code>)。</p>
 <p>利用<code>QueryMode()</code>函数可以通过某个文本显示模式的ID来获取它对应的行数和列数，图2.8展示了它的定义。</p>
@@ -2511,7 +2495,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <p>这个例子列出所有<code>[0, MaxMode - 1]</code>区间内受支持的文本显示模式的行数和列数的16进制值，如图2.11所示。</p>
 <p><img src="part2/output/../../images/part2/query-text-mode.png" alt="运行图2.10的程序的情况" /></p>
 <p>图2.11: 运行图2.10的程序的情况</p>
-<h1><a class="header" href="#设置文本显示模式" id="设置文本显示模式">设置文本显示模式</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="设置文本显示模式"><a class="header" href="#设置文本显示模式">设置文本显示模式</a></h1>
 <p>要更改文本显示模式(Text mode)，也就是显示的行数和列数，则需要用到<code>SetMode()</code>这个函数，图2.12展示了它的定义。</p>
 <p>本节示例代码的目录为<code>set-text-mode</code> (日文版为<code>013_simple_text_output_set_mode</code>)。</p>
 <pre><code class="language-c">struct EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL {
@@ -2600,7 +2584,7 @@ struct EFI_GRAPHICS_OUTPUT_PROTOCOL {
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>译者注：日文版中这个例子输出的内容是&quot;Hello UEFI!こんにちは、せかい!&quot;，考虑到大部分计算机的UEFI固件和OVMF都不支持显示日语字符，这里改成了&quot;Hello UEFI!&quot;。</p>
 </div>
-<h1><a class="header" href="#键盘输入" id="键盘输入">键盘输入</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="键盘输入"><a class="header" href="#键盘输入">键盘输入</a></h1>
 <p>UEFI标准中有一个比简单文本输入协议(Simple Text Input Protocol)拥有更多功能的Simple Text Input Ex Protocol <code>EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL</code>。本章将介绍一些利用该协议的编程技巧。</p>
 <p>图3.1展示了<code>EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL</code>的GUID和定义。</p>
 <pre><code class="language-c">struct EFI_GUID stiep_guid = {0xdd9e7534, 0x7762, 0x4698, \
@@ -2641,7 +2625,7 @@ struct EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL {
 </code></pre>
 <p>图3.1: <code>EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL</code>的GUID和定义</p>
 <p>本章将介绍其中的<code>RegisterKeyNotify()</code>函数。</p>
-<h1><a class="header" href="#绑定按键事件" id="绑定按键事件">绑定按键事件</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="绑定按键事件"><a class="header" href="#绑定按键事件">绑定按键事件</a></h1>
 <p><code>RegisterKeyNotify()</code>是用来将特定按键输入事件和事件处理函数绑定的函数，如图3.2所示.</p>
 <p>本节示例代码的目录为<code>key-notify</code> (日文版为<code>020_simple_text_input_ex_register_key_notify</code>)。</p>
 <pre><code class="language-c">struct EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL {
@@ -2722,7 +2706,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <p>图3.5: 图3.4的程序等待q键输入时的情况</p>
 <p><img src="part2/input/../../images/part2/key-notify-pressed.png" alt="按下q键后的情况" /></p>
 <p>图3.6: 按下q键后的情况</p>
-<h3><a class="header" href="#补充-获取unicode范围外的按键输入" id="补充-获取unicode范围外的按键输入">补充: 获取Unicode范围外的按键输入</a></h3>
+<h3 id="补充-获取unicode范围外的按键输入"><a class="header" href="#补充-获取unicode范围外的按键输入">补充: 获取Unicode范围外的按键输入</a></h3>
 <p>对于Unicode范围外的按键输入（Esc键、方向键、功能键等），需要设置<code>EFI_KEY_DATA.ScanCode</code>为这个按键对应的扫描码。标准文档&quot;Table 88. EFI Scan Codes for EFI_SIMPLE_TEXT_INPUT_PROTOCOL(P.410)&quot;和&quot;Table 89. EFI Scan Codes for EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL(P.411)&quot;记录了各个按键对应的扫描码。表3.1是对它们的汇总。</p>
 <table><thead><tr><th>扫描码</th><th>按键</th><th>扫描码</th><th>按键</th></tr></thead><tbody>
 <tr><td>0x00</td><td>Null</td><td>0x15</td><td>F11</td></tr>
@@ -2757,16 +2741,16 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 + struct EFI_KEY_DATA esc_key_data = {{0x17, 0}, {0, 0}};
 </code></pre>
 <p>图3.7: 将q键改为Esc键所需要进行的修改</p>
-<h1><a class="header" href="#加载和执行uefi应用程序" id="加载和执行uefi应用程序">加载和执行UEFI应用程序</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="加载和执行uefi应用程序"><a class="header" href="#加载和执行uefi应用程序">加载和执行UEFI应用程序</a></h1>
 <p>通过调用<code>EFI_BOOT_SERVICES</code>中的<code>LoadImage()</code>和<code>StartImage()</code>函数可以加载并执行一个UEFI应用程序。但在这之前，我们需要为我们要加载的程序创建一个设备路径。</p>
 <p>在本章中，我们将会解释“设备路径”这个概念，告诉你如何查看和创建它，并介绍如何加载并执行UEFI应用程序。</p>
 <p>事实上，Linux内核镜像可以被编译成一个UEFI应用程序。在本章的最后，我们将编写一个简单的Bootloader来启动Linux内核。</p>
-<h1><a class="header" href="#查看当前设备路径" id="查看当前设备路径">查看当前设备路径</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="查看当前设备路径"><a class="header" href="#查看当前设备路径">查看当前设备路径</a></h1>
 <p>为了调用<code>LoadImage()</code>来加载UEFI应用程序，我们需要通过它的路径来创建一个设备路径。</p>
 <p>由于我们有办法来获取到当前应用程序<code>EFI/BOOT/BOOTX64.EFI</code>的设备路径，在本章中，我们将会通过修改这个现有的设备路径来为要加载的UEFI应用程序来创建设备路径。</p>
 <p>在本节中，我们首先来编写一个程序来显示当前应用程序的设备路径，来看看设备路径是什么样子的。</p>
 <p>本节示例代码的目录为<code>filepath</code> (日文版为<code>030_loaded_image_protocol_file_path</code>)。</p>
-<h2><a class="header" href="#efi_loaded_image_protocol" id="efi_loaded_image_protocol">EFI_LOADED_IMAGE_PROTOCOL</a></h2>
+<h2 id="efi_loaded_image_protocol"><a class="header" href="#efi_loaded_image_protocol">EFI_LOADED_IMAGE_PROTOCOL</a></h2>
 <p>要获取关于已加载的镜像(UEFI应用程序)的信息，需要用到图4.1中的<code>EFI_LOADED_IMAGE_PROTOCOL</code>（标准文档&quot;8.1 EFI Loaded Image Protocol(P.255)&quot;）。</p>
 <pre><code class="language-c">struct EFI_LOADED_IMAGE_PROTOCOL {
         unsigned int Revision;
@@ -2792,7 +2776,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 </code></pre>
 <p>图4.1: <code>EFI_LOADED_IMAGE_PROTOCOL</code>的定义（位于<code>efi.h</code>中）</p>
 <p><code>EFI_LOADED_IMAGE_PROTOCOL</code>和我们目前位置介绍过的所有协议不同的是，它大部分的成员都是变量而不是函数。这些变量存放着和当前已加载的镜像相关的信息。从类型名<code>EFI_DEVICE_PATH_PROTOCOL</code>可以看出，其中的<code>FilePath</code>这项就是已加载镜像的设备路径。</p>
-<h2><a class="header" href="#使用openprotocol获取efi_loaded_image_protocol" id="使用openprotocol获取efi_loaded_image_protocol">使用OpenProtocol()获取EFI_LOADED_IMAGE_PROTOCOL</a></h2>
+<h2 id="使用openprotocol获取efi_loaded_image_protocol"><a class="header" href="#使用openprotocol获取efi_loaded_image_protocol">使用OpenProtocol()获取EFI_LOADED_IMAGE_PROTOCOL</a></h2>
 <p>要得到已加载镜像的<code>EFI_LOADED_IMAGE_PROTOCOL</code>，需要使用<code>EFI_BOOT_SERVICES</code>中的<code>OpenProtocol()</code>函数，图4.2展示了它的定义。</p>
 <pre><code class="language-c">struct EFI_SYSTEM_TABLE {
     ...
@@ -2850,7 +2834,7 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 }
 </code></pre>
 <p>图4.5: 使用<code>OpenProtocol()</code>的例子</p>
-<h2><a class="header" href="#efi_device_path_to_text_protocol" id="efi_device_path_to_text_protocol">EFI_DEVICE_PATH_TO_TEXT_PROTOCOL</a></h2>
+<h2 id="efi_device_path_to_text_protocol"><a class="header" href="#efi_device_path_to_text_protocol">EFI_DEVICE_PATH_TO_TEXT_PROTOCOL</a></h2>
 <p>而要把获取到的设备路径转换成字符串，则需要使用<code>EFI_DEVICE_PATH_TO_TEXT_PROTOCOL</code>，图4.6展示了它的定义。</p>
 <pre><code class="language-c">struct EFI_DEVICE_PATH_TO_TEXT_PROTOCOL {
     unsigned long long _buf;
@@ -2909,7 +2893,7 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 <p>这个程序在屏幕上输出它的设备路径<code>\EFI\BOOT\BOOTX64.EFI</code>，如图4.9所示。</p>
 <p><img src="part2/loader/../../images/part2/filepath.png" alt="图4.8程序输出的设备路径" /></p>
 <p>图4.9: 图4.8程序输出的设备路径</p>
-<h1><a class="header" href="#创建设备路径" id="创建设备路径">创建设备路径</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="创建设备路径"><a class="header" href="#创建设备路径">创建设备路径</a></h1>
 <p>上一节中我们介绍了用来把设备路径转换为字符串的函数<code>ConvertDevicePathToText()</code>。与之相对应地，UEFI标准中还有用来把字符串转换为设备路径的函数，它就是<code>EFI_DEVICE_PATH_FROM_TEXT_PROTOCOL</code>中的<code>ConvertTextToDevicePath()</code>函数，图4.10展示了它的定义。</p>
 <p>本节示例代码的目录为<code>create-path</code> (日文版为<code>031_create_devpath_1</code>)。</p>
 <pre><code class="language-c">struct EFI_DEVICE_PATH_FROM_TEXT_PROTOCOL {
@@ -2957,7 +2941,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)), struct EFI_SYSTEM_TABL
 <p><img src="part2/loader/../../images/part2/create-path.png" alt="图4.12程序输出的设备路径" /></p>
 <p>图4.13: 图4.12程序输出的设备路径</p>
 <p>可以看到，我们成功地创建了我们想要的设备路径。</p>
-<h1><a class="header" href="#从设备路径加载镜像" id="从设备路径加载镜像">从设备路径加载镜像</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="从设备路径加载镜像"><a class="header" href="#从设备路径加载镜像">从设备路径加载镜像</a></h1>
 <p>创建完设备路径之后，就可以用<code>LoadImage()</code>函数加载镜像了，这个函数是<code>EFI_BOOT_SERVICES</code>的成员，图4.14展示了它的定义。</p>
 <p>本节示例代码的目录为<code>load-path</code> (日文版为<code>032_load_devpath_1</code>)。</p>
 <pre><code class="language-c">struct EFI_SYSTEM_TABLE {
@@ -3040,7 +3024,7 @@ fs/EFI/BOOT/BOOTX64.EFI: main.c
 <div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
 <p>译者注：如果想要了解为什么要这么做，可以看<a href="https://descent-incoming.blogspot.com/2017/12/uefi-program-by-gcc.html">https://descent-incoming.blogspot.com/2017/12/uefi-program-by-gcc.html</a></p>
 </div>
-<h1><a class="header" href="#设备路径的设备" id="设备路径的设备">设备路径的“设备”</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="设备路径的设备"><a class="header" href="#设备路径的设备">设备路径的“设备”</a></h1>
 <p>到现在，我们已经知道了如何查看、创建形如<code>\EFI\BOOT\BOOTX64.EFI</code>或是<code>\test.efi</code>这样的设备路径。但你有没有这样一个疑问，既然我们称它们为设备路径，“设备”表现在哪里？这个路径并不能表示文件是在哪个设备上的。比如说，我们无法通过这些路径区分文件是在硬盘上的还是U盘上的。</p>
 <p>UEFI是用路径的形式来表示设备的，这也是为什么称它为“设备路径”。之前的我们创建的“设备路径”只有“路径”，缺少了“设备”这一要素。</p>
 <p>要知道如何指定“设备”这一部分，我们先来看一下开机自动运行的UEFI应用程序是在哪个设备上的。要获取设备的路径表示，我们仍旧需要用到图4.18中的<code>EFI_LOADED_IMAGE_PROTOCOL</code></p>
@@ -3112,7 +3096,7 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 <p><img src="part2/loader/../../images/part2/devicehandle.png" alt="图4.20程序输出的设备的路径" /></p>
 <p>图4.21: 图4.20程序输出的设备的路径</p>
 <p><code>PciRoot</code>开头的字符串就是设备的路径，它也很像我们平时常说的路径。为什么要这么表示超出了本书的范围，因此这边不做解释。我们只需要了解，在UEFI中，几乎所有的设备都有这样的路径，包括存储设备、鼠标等等。</p>
-<h1><a class="header" href="#创建完整的设备路径" id="创建完整的设备路径">创建完整的设备路径</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="创建完整的设备路径"><a class="header" href="#创建完整的设备路径">创建完整的设备路径</a></h1>
 <p>现在，我们有了两个“路径”。一个是<code>PciRoot</code>开头的“设备的路径”；另一个是我们之前称作设备路径的<code>.\test.efi</code>，它实际上是“文件的路径”。而完整的设备路径，正是它们两者的组合。</p>
 <p>本节示例代码的目录为<code>create-devpath</code> (日文版为<code>034_create_devpath_2</code>)。</p>
 <p><code>EFI_DEVICE_PATH_UTILITIES_PROTOCOL</code>这个协议拥有一系列的用来操作路径的函数，这里我们只用到其中的<code>AppendDeviceNode()</code>这个函数，图4.22展示了它们的定义。</p>
@@ -3206,7 +3190,7 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p><code>EFI_DEVICE_PATH_UTILITIES_PROTOCOL</code>中还有用来拼接两个设备路径的函数等等一系列函数，由于这里我们没有用到它们，因此不作介绍。</p>
 </div>
-<h1><a class="header" href="#从完整的设备路径加载镜像" id="从完整的设备路径加载镜像">从完整的设备路径加载镜像</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="从完整的设备路径加载镜像"><a class="header" href="#从完整的设备路径加载镜像">从完整的设备路径加载镜像</a></h1>
 <p>接下来，让我们再一次尝试从设备路径加载镜像。</p>
 <p>本节示例代码的目录为<code>load-devpath</code> (日文版为<code>035_load_devpath_2</code>)。</p>
 <p>这次我们要从上一节中处理好的完整设备路径来加载。所要做的，就是把上一节图4.24的代码和<a href="part2/loader/./loaddevpath.html">4.3 从设备路径加载镜像</a>中图4.15中调用<code>LoadImage</code>的代码组合起来，就像图4.27这样。</p>
@@ -3263,7 +3247,7 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 <p>运行这个程序，可以看到，这次我们终于成功地加载了<code>test.efi</code>（图4.28）。</p>
 <p><img src="part2/loader/../../images/part2/load-devpath.png" alt="成功加载test.efi" /></p>
 <p>图4.28: 成功加载<code>test.efi</code></p>
-<h1><a class="header" href="#运行加载的镜像" id="运行加载的镜像">运行加载的镜像</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="运行加载的镜像"><a class="header" href="#运行加载的镜像">运行加载的镜像</a></h1>
 <p>成功加载UEFI应用程序镜像之后，下一步就是运行它了。</p>
 <p>本节示例代码的目录为<code>start-image</code> (日文版为<code>036_start_devpath</code>)。</p>
 <p>用来运行加载好的镜像的函数是<code>EFI_BOOT_SERVICES</code>中的<code>StartImage()</code>，图4.29展示了它的定义。</p>
@@ -3355,10 +3339,10 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 <p>图4.31: 成功加载并运行“Hello UEFI!”</p>
 <p>今后，我们可以用同样的方法来运行其他的UEFI应用程序。</p>
 <p>顺带一提，运行“Hello UEFI!”这个应用程序你会看到光标跳到了下一行，但没有返回行头。这是因为UEFI和Windows一样，是用CRLF来换行的，而第一部分的“Hello UEFI!”这个程序在换行时缺少了CR(Carriage Return/<code>\r</code>)来把光标放回行头。</p>
-<h1><a class="header" href="#启动linux-编译并启动内核" id="启动linux-编译并启动内核">启动Linux: 编译并启动内核</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="启动linux-编译并启动内核"><a class="header" href="#启动linux-编译并启动内核">启动Linux: 编译并启动内核</a></h1>
 <p>自Linux内核3.3版本起，可以在编译时的设置(menuconfig)选择将其编译成UEFI应用程序，这个功能叫做EFI Stub。通过这个功能，我们可以用之前介绍过的运行UEFI应用程序的办法来启动Linux内核镜像(bzImage格式)。</p>
 <p>本节示例代码的目录为<code>boot-kernel</code> (日文版为<code>037_start_bzImage</code>)。</p>
-<h2><a class="header" href="#环境搭建" id="环境搭建">环境搭建</a></h2>
+<h2 id="环境搭建"><a class="header" href="#环境搭建">环境搭建</a></h2>
 <p>这里我们介绍在使用apt包管理器的发行版(Debian、Ubuntu等)下的环境搭建。</p>
 <p>通过<code>apt build-dep &lt;软件包名&gt;</code>命令，可以一键安装编译某个特定软件包的依赖包。</p>
 <p>内核镜像的包名是<code>linux-image-&lt;版本号&gt;-&lt;类型&gt;</code>。当前使用的内核版本号和类型可以通过<code>uname -r</code>命令来查看。因此，我们可以用下面这条命令来安装编译Linux内核要用到的环境。</p>
@@ -3367,7 +3351,7 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 <p>此外，menuconfig的依赖<code>libncurses5-dev</code>在运行<code>apt-get build-dep</code>时不会被安装，我们需要手动安装它。</p>
 <pre><code class="language-shell">$ sudo apt install libncurses5-dev
 </code></pre>
-<h2><a class="header" href="#获取linux内核源代码" id="获取linux内核源代码">获取Linux内核源代码</a></h2>
+<h2 id="获取linux内核源代码"><a class="header" href="#获取linux内核源代码">获取Linux内核源代码</a></h2>
 <p>源代码可以通过<code>apt-get source &lt;软件包名&gt;</code>来获取，但这里，我们使用<a href="https://kernel.org">kernel.org</a>上的最新的稳定版Linux内核。点击网页上的&quot;Latest Stable Kernel&quot;，就可以下载了。</p>
 <p><img src="part2/loader/../../images/part2/kernel-org.png" alt="kernel.org" /></p>
 <p>图4.32: kernel.org</p>
@@ -3381,7 +3365,7 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 <p>中国科学技术大学开源软件镜像站: <a href="https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/">https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/</a></p>
 <p>找到Latest Stable Kernel对应的<code>.tar.xz</code>文件点击下载即可。</p>
 </blockquote>
-<h2><a class="header" href="#配置编译选项" id="配置编译选项">配置编译选项</a></h2>
+<h2 id="配置编译选项"><a class="header" href="#配置编译选项">配置编译选项</a></h2>
 <p>接下来我们配置内核的编译选项。首先进入到解压后的Linux内核源代码的目录，并载入x86_64架构的默认编译选项。</p>
 <pre><code class="language-shell">$ cd linux-&lt;版本号&gt;
 $ make x86_64_defconfig
@@ -3394,18 +3378,18 @@ $ make x86_64_defconfig
 <p>找到并进入&quot;Processor type and features&quot;，并勾选&quot;EFI stub support&quot;（按&quot;Y&quot;键）。</p>
 <p><img src="part2/loader/../../images/part2/menuconfig-efistub.png" alt="勾选&quot;EFI stub support&quot;" /></p>
 <p>图4.34: 勾选&quot;EFI stub support&quot;</p>
-<h2><a class="header" href="#编译内核" id="编译内核">编译内核</a></h2>
+<h2 id="编译内核"><a class="header" href="#编译内核">编译内核</a></h2>
 <p>现在我们开始编译Linux内核。make命令的<code>-j</code>选项指定编译线程数，这里我们用<code>nproc</code>命令获得的逻辑CPU数量作为<code>-j</code>选项(编译线程数)的值来加快编译速度。</p>
 <pre><code class="language-shell">$ make -j $(nproc)
 </code></pre>
 <p>编译Linux内核可能需要比较长的时间，坐和放宽。</p>
 <p>编译完成后，我们会在<code>arch/x86/boot</code>目录下得到一个名为<code>bzImage</code>的镜像文件。</p>
-<h2><a class="header" href="#启动内核镜像" id="启动内核镜像">启动内核镜像</a></h2>
+<h2 id="启动内核镜像"><a class="header" href="#启动内核镜像">启动内核镜像</a></h2>
 <p>把<code>arch/x86/boot/bzImage</code>复制到之前我们存放<code>test.efi</code>的位置，并改名为<code>bzImage.efi</code>，再把上一节图4.30代码中的<code>test.efi</code>改成<code>bzImage.efi</code>并重新编译<sup class="footnote-reference"><a href="#1">1</a></sup>，就可以启动Linux内核了，如图4.35所示。</p>
 <p><img src="part2/loader/../../images/part2/boot-kernel.png" alt="启动时产生的内核错误" /></p>
 <p>图4.35: 启动时产生的内核错误</p>
 <p>虽然这里我们启动了Linux内核，但这里产生了一个内核错误(Kernel panic)，这是因为我们还没有指定根文件系统。下一节将介绍如何指定这些启动参数。</p>
-<h2><a class="header" href="#补充-使用menuconfig的搜索功能" id="补充-使用menuconfig的搜索功能">补充: 使用menuconfig的搜索功能</a></h2>
+<h2 id="补充-使用menuconfig的搜索功能"><a class="header" href="#补充-使用menuconfig的搜索功能">补充: 使用menuconfig的搜索功能</a></h2>
 <p>如果在menuconfig界面中找不到之前说的选项，我们可以尝试使用它的搜索功能。在menuconfig界面中按下<code>/</code>键可以打开搜索界面，如图4.36所示。</p>
 <p><img src="part2/loader/../../images/part2/menuconfig-search.png" alt="menuconfig的搜索界面" /></p>
 <p>图4.36: menuconfig的搜索界面</p>
@@ -3420,7 +3404,7 @@ $ make x86_64_defconfig
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>搜索功能是大小写无关的</p>
 </div>
-<h1><a class="header" href="#启动linux-内核启动参数" id="启动linux-内核启动参数">启动Linux: 内核启动参数</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="启动linux-内核启动参数"><a class="header" href="#启动linux-内核启动参数">启动Linux: 内核启动参数</a></h1>
 <p>上一节中，我们启动内核发生了错误，这是由于我们没有指定一些必要的启动参数，例如错误消息中的根文件系统(rootfs)。接下来，我们就来设置这些启动参数。</p>
 <p>本节示例代码的目录为<code>boot-kernel-rootfs</code> (日文版为<code>038_start_bzImage_options</code>)。</p>
 <p>UEFI应用程序的参数由<code>EFI_LOADED_IMAGE_PROTOCOL</code>中的<code>LoadOptionsSize</code>和<code>LoadOptions</code>表示，图4.38展示了它们的定义。</p>
@@ -3521,7 +3505,7 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 <p>使用这些启动参数，就可以成功启动到Shell了。</p>
 <p><img src="part2/loader/../../images/part2/boot-kernel-busybox.png" alt="成功启动内核并进入Shell" /></p>
 <p>图4.40: 成功启动内核并进入Shell</p>
-<h2><a class="header" href="#补充-构建最小根文件系统" id="补充-构建最小根文件系统">补充: 构建最小根文件系统</a></h2>
+<h2 id="补充-构建最小根文件系统"><a class="header" href="#补充-构建最小根文件系统">补充: 构建最小根文件系统</a></h2>
 <p>对于我们这里只需要运行一个Shell的需求，我们可以使用Busybox来构建一个最小根文件系统。Busybox被誉为“嵌入式Linux系统的瑞士军刀”，它集成了一系列的常用命令，并且通过建立以命令来命名的指向busybox的链接，比如<code>/bin/ls -&gt; /bin/busybox</code>，可以运行对应的命令。</p>
 <p>在使用apt包管理器的发行版(Debian、Ubuntu等)，我们可以通过安装<code>busybox-static</code>包来得到静态链接的busybox。</p>
 <pre><code class="language-shell">$ sudo apt install busybox-static
@@ -3570,9 +3554,9 @@ mount -t sysfs sysfs /sys
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>译者注：所有<code>root=...</code>可接受的参数形式请参考内核源代码中的<a href="https://github.com/torvalds/linux/blob/master/init/do_mounts.c#L192-L221"><code>init/do_mounts.c</code></a></p>
 </div>
-<h1><a class="header" href="#计时器事件" id="计时器事件">计时器事件</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="计时器事件"><a class="header" href="#计时器事件">计时器事件</a></h1>
 <p>通过计时器事件，我们可以让运行中的程序暂停一段时间，或是利用事件处理函数来实现异步操作。本章将介绍这两种用法。</p>
-<h1><a class="header" href="#暂停程序执行" id="暂停程序执行">暂停程序执行</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="暂停程序执行"><a class="header" href="#暂停程序执行">暂停程序执行</a></h1>
 <p>通过<code>EFI_BOOT_SERVICES</code>中的<code>CreateEvent()</code>、<code>SetTimer()</code>和<code>WaitForEvent()</code>这三个函数，可以实现使程序暂停一段时间后再执行的功能。图6.1展示了它们的定义。在第一部分<a href="part2/timer/../../part1/input/echo.html">3.2 编写一个回显程序</a>中，我们已经介绍并使用过了<code>WaitForEvent()</code>这个函数，这里我们将着重介绍另外两个函数。</p>
 <p>本节示例代码的目录为<code>timer-wait</code> (日文版为<code>040_evt_timer_blocking</code>)。</p>
 <pre><code class="language-c">/* 事件类型 */
@@ -3688,7 +3672,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 &quot;wait.&quot;，就像图6.3这样。</p>
 <p><img src="part2/timer/../../images/part2/timer-wait.png" alt="图6.2程序的运行结果" /></p>
 <p>图6.3: 图6.2程序的运行结果</p>
-<h1><a class="header" href="#利用事件处理函数异步操作" id="利用事件处理函数异步操作">利用事件处理函数异步操作</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="利用事件处理函数异步操作"><a class="header" href="#利用事件处理函数异步操作">利用事件处理函数异步操作</a></h1>
 <p>在<code>CreateEvent()</code>函数中我们也可以设置事件处理函数来在事件发生时执行某个特定的函数，利用这个功能，我们可以实现异步操作<sup class="footnote-reference"><a href="#1">1</a></sup>。</p>
 <p>本节示例代码的目录为<code>timer-notify</code> (日文版为<code>041_evt_timer_nonblocking</code>)。</p>
 <pre><code class="language-c">unsigned long long (*CreateEvent)(
@@ -3797,9 +3781,9 @@ void efi_main(void *ImageHandle __attribute__((unused)), struct EFI_SYSTEM_TABLE
 <p>图5.8: 图5.5程序的运行结果</p>
 <p>对于事件<code>tickevent</code>的处理是独立于<code>main</code>函数的，程序的控制流每隔1秒从<code>main</code>函数被移交到<code>tick_callback</code>函数。程序不会等待事件<code>tickevent</code>的发生，它继续执行其他的操作，直到事件发生，控制才被移交给事件处理函数。而<code>main</code>函数在<code>WaitForEvent(tockevent)</code>返回前，不执行任何操作。换句话说，对<code>tickevent</code>的处理是异步非阻塞的，而对<code>tockevent</code>的处理则是同步阻塞的，这就是上一节中等待事件发生和这一节注册事件处理函数最本质的区别。</p>
 <p><sup class="footnote-reference"><a href="#1">1</a></sup> 译者注: 这一节原作者的理解有误，译者进行了大幅修改</p>
-<h1><a class="header" href="#其他功能" id="其他功能">其他功能</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="其他功能"><a class="header" href="#其他功能">其他功能</a></h1>
 <p><code>EFI_BOOT_SERVICES</code>和我们还没有介绍过的<code>EFI_RUNTIME_SERVICES</code>还有许多其他的功能。本章将介绍其中的两个功能。</p>
-<h1><a class="header" href="#内存分配器" id="内存分配器">内存分配器</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="内存分配器"><a class="header" href="#内存分配器">内存分配器</a></h1>
 <p>要使用UEFI固件的内存分配器，我们可以通过<code>EFI_BOOT_SERVICES</code>中的<code>AllocatePool()</code>和<code>FreePool()</code>函数，图6.1展示了它们的定义。</p>
 <p>本节示例代码的目录为为<code>malloc</code> (日文版为<code>050_bs_malloc</code>)。</p>
 <pre><code class="language-c">enum EFI_MEMORY_TYPE {
@@ -3887,7 +3871,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <p>这里绘制的是以蓝色为x轴，绿色为y轴的色阶图，每个轴上有256级，如图6.3所示。</p>
 <p><img src="part2/other/../../images/part2/malloc.png" alt="绘制的蓝-绿色阶图" /></p>
 <p>图6.3: 绘制的蓝-绿色阶图</p>
-<h1><a class="header" href="#软关机" id="软关机">软关机</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="软关机"><a class="header" href="#软关机">软关机</a></h1>
 <p>由于UEFI应用程序运行在内存上，我们可以通过按下电源键来安全地关机，并且一直以来我们都是这么做的。除此之外，我们也可以使用<code>EFI_RUNTIME_SERVICES</code>中的<code>ResetSystem()</code>函数进行软关机或软重启，它的定义和它相关的定义如图6.4所示。</p>
 <p>本节示例代码的目录为<code>shutdown</code> (日文版为<code>051_rs_resetsystem</code>)。</p>
 <p><code>EFI_RUNTIME_SERVICES</code>和<code>EFI_BOOT_SERVICES</code>一样，都是<code>EFI_SYSTEM_TABLE</code>中的成员。在第一部分我们介绍过，<code>EFI_BOOT_SERVICES</code>主要供引导加载程序(Bootloader)使用，它在操作系统启动后就不可用了，而<code>EFI_RUNTIME_SERVICES</code>可以在操作系统启动后继续使用。</p>
@@ -3965,7 +3949,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <p>图6.6是上面这个程序运行时的情况。</p>
 <p><img src="part2/other/../../images/part2/shutdown.png" alt="图6.5程序运行时的情况" /></p>
 <p>图6.6: 图6.5程序运行时的情况</p>
-<h1><a class="header" href="#后记-1" id="后记-1">后记</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="后记-1"><a class="header" href="#后记-1">后记</a></h1>
 <p>非常感谢您阅读本书！</p>
 <p>上一部作品（第一部分）是以“编写一个类似于操作系统的程序”为目标的。而在这本书中，我们终于利用UEFI固件提供的功能实现了一个可以用的引导加载程序(Bootloader)。</p>
 <p>正如之前我们说介绍过的那样，通过UEFI可以轻松启动Linux内核。因此，我认为书中介绍的用自己编译的Linux内核在U盘上构建一个最小化的Linux系统，是一件非常有意思的事情。</p>
@@ -3980,8 +3964,8 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 <div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>译者注：当然这是在玩梗</p>
 </div>
-<h1><a class="header" href="#参考资料-1" id="参考资料-1">参考资料</a></h1>
-<h2><a class="header" href="#本书所参考的资料-1" id="本书所参考的资料-1">本书所参考的资料</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="参考资料-1"><a class="header" href="#参考资料-1">参考资料</a></h1>
+<h2 id="本书所参考的资料-1"><a class="header" href="#本书所参考的资料-1">本书所参考的资料</a></h2>
 <ul>
 <li>
 <p>UEFI标准</p>
@@ -4000,7 +3984,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 </ul>
 </li>
 </ul>
-<h2><a class="header" href="#除本书外的关于uefi裸机编程的资料-1" id="除本书外的关于uefi裸机编程的资料-1">除本书外的关于UEFI裸机编程的资料</a></h2>
+<h2 id="除本书外的关于uefi裸机编程的资料-1"><a class="header" href="#除本书外的关于uefi裸机编程的资料-1">除本书外的关于UEFI裸机编程的资料</a></h2>
 <ul>
 <li>
 <p>我的博客 (へにゃぺんて＠日々勉強のまとめ)</p>
@@ -4027,19 +4011,19 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 </ul>
 </li>
 </ul>
-<h1><a class="header" href="#关于本书" id="关于本书">关于本书</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="关于本书"><a class="header" href="#关于本书">关于本书</a></h1>
 <p>本书为同人志『フルスクラッチで作る!UEFIベアメタルプログラミング』两册的中文翻译版本。</p>
 <p>作者: 大神 祐真 &lt;yuma#ohgami.jp&gt;  (将<code>#</code>改为<code>@</code>即为邮件地址，下同)</p>
 <p>译者: 神楽坂琴梨 &lt;kagurazakakotori#gmail.com&gt;</p>
 <p>在未征得作者及译者同意的情况下，请勿将本书用于盈利用途。</p>
-<h2><a class="header" href="#关于原著" id="关于原著">关于原著</a></h2>
-<h3><a class="header" href="#フルスクラッチで作るuefi-ベアメタルプログラミング" id="フルスクラッチで作るuefi-ベアメタルプログラミング">フルスクラッチで作る!UEFI ベアメタルプログラミング</a></h3>
+<h2 id="关于原著"><a class="header" href="#关于原著">关于原著</a></h2>
+<h3 id="フルスクラッチで作るuefi-ベアメタルプログラミング"><a class="header" href="#フルスクラッチで作るuefi-ベアメタルプログラミング">フルスクラッチで作る!UEFI ベアメタルプログラミング</a></h3>
 <ul>
 <li>作者: 大神祐真</li>
 <li>发行社团: へにゃぺんて</li>
 <li>发行日期: 2017年8月11日 (Comiket Market 92/コミックマーケット92)</li>
 </ul>
-<h3><a class="header" href="#フルスクラッチで作るuefi-ベアメタルプログラミング-パート2" id="フルスクラッチで作るuefi-ベアメタルプログラミング-パート2">フルスクラッチで作る!UEFI ベアメタルプログラミング パート2</a></h3>
+<h3 id="フルスクラッチで作るuefi-ベアメタルプログラミング-パート2"><a class="header" href="#フルスクラッチで作るuefi-ベアメタルプログラミング-パート2">フルスクラッチで作る!UEFI ベアメタルプログラミング パート2</a></h3>
 <ul>
 <li>作者: 大神祐真</li>
 <li>发行社团: へにゃぺんて</li>
@@ -4050,9 +4034,7 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
 
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -4060,45 +4042,31 @@ void efi_main(void *ImageHandle __attribute__ ((unused)),
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
 
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
 
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
-        
         <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
 
     </body>
 </html>

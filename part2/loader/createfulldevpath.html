@@ -4,25 +4,17 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>创建完整的设备路径 - 从零开始的UEFI裸机编程</title>
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="../../favicon.svg">
-        
-        
         <link rel="shortcut icon" href="../../favicon.png">
-        
         <link rel="stylesheet" href="../../css/variables.css">
         <link rel="stylesheet" href="../../css/general.css">
         <link rel="stylesheet" href="../../css/chrome.css">
@@ -30,9 +22,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="../../fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../../highlight.css">
@@ -40,9 +30,7 @@
         <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -101,8 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -118,7 +105,6 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                     </div>
 
                     <h1 class="menu-title">从零开始的UEFI裸机编程</h1>
@@ -127,11 +113,10 @@
                         <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
+
                     </div>
                 </div>
 
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
@@ -144,7 +129,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#创建完整的设备路径" id="创建完整的设备路径">创建完整的设备路径</a></h1>
+                        <h1 id="创建完整的设备路径"><a class="header" href="#创建完整的设备路径">创建完整的设备路径</a></h1>
 <p>现在，我们有了两个“路径”。一个是<code>PciRoot</code>开头的“设备的路径”；另一个是我们之前称作设备路径的<code>.\test.efi</code>，它实际上是“文件的路径”。而完整的设备路径，正是它们两者的组合。</p>
 <p>本节示例代码的目录为<code>create-devpath</code> (日文版为<code>034_create_devpath_2</code>)。</p>
 <p><code>EFI_DEVICE_PATH_UTILITIES_PROTOCOL</code>这个协议拥有一系列的用来操作路径的函数，这里我们只用到其中的<code>AppendDeviceNode()</code>这个函数，图4.22展示了它们的定义。</p>
@@ -243,17 +228,13 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../../part2/loader/devicehandle.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../../part2/loader/loadfulldevpath.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -261,45 +242,32 @@ void efi_main(void *ImageHandle, struct EFI_SYSTEM_TABLE *SystemTable)
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="../../part2/loader/devicehandle.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
                     <a rel="next" href="../../part2/loader/loadfulldevpath.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
 
         <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
     </body>
 </html>
